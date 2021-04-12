@@ -1,0 +1,59 @@
+.DrawerToggle {
+    z-index: 250;
+    width: 2rem;
+    height: 3em;
+    position: absolute;
+    right: 1rem;
+    top: 6rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.DrawerToggle div {
+    width: 90%;
+    height: 3px;
+    background-color: black;
+}
+
+.DrawerToggleClose .top{
+    position: unset;
+    transform: rotate(0deg);
+    transition: transform 0.3s linear;
+}
+
+.DrawerToggleClose .middle{
+    display: unset;
+}
+
+.DrawerToggleClose .bottom{
+    position: unset;
+    transform: rotate(0deg);
+    transition: transform 0.3s linear;
+}
+
+.DrawerToggleOpen .top {
+    position: absolute;
+    transform: rotate(45deg);
+    transition: transform 0.3s linear;
+}
+
+.DrawerToggleOpen .middle {
+    display: none;
+}
+
+.DrawerToggleOpen .bottom {
+    position: absolute;
+    transform: rotate(-45deg);
+    transition: transform 0.3s linear;
+}
+
+@media (min-width: 600px) {
+    .DrawerToggle {
+        display: none;
+    }
+}

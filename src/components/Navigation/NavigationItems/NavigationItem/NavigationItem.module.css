@@ -1,0 +1,55 @@
+.NavigationItem {
+    font-family: "Krona One";
+    margin: 0.5rem 1rem 0 3rem;
+    box-sizing: border-box;
+    display: block;
+    font-size: 1.5em;
+}
+
+.NavigationItem a {
+    color: gray;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    box-sizing: border-box;
+    display: block;
+    border-bottom-color: white;
+    border-bottom-width: 0.05em;
+    border-bottom-style: solid;
+}
+
+.NavigationItem a:hover {
+    color: rgb(80, 79, 79);
+}
+
+.NavigationItem a:active,
+.NavigationItem a.active {
+    color: black;
+}
+
+@media(min-width: 600px) {
+    .NavigationItem {
+        font-size: unset;
+        margin: 0 auto;
+        display: block;
+        height: 100%;
+        width: auto;
+        align-items: center;
+    }
+    
+    .NavigationItem a {
+        color: gray;
+        height: 100%;
+        width: auto;
+        padding: 16px 10px;
+        border-bottom: 4px solid transparent;   
+    }
+    
+    .NavigationItem a:hover {
+        color: rgb(80, 79, 79);
+    }
+
+    .NavigationItem a:active,
+    .NavigationItem a.active {
+        color: black;
+    }
+}
