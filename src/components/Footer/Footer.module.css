@@ -1,7 +1,140 @@
 .Footer {
-
+    border-top-style: solid;
+    border-top-color: black;
+    border-top-width: 1rem;
+    width: 100%;
+    font-family: "Krona One";
+    background-color: rgb(234, 169, 41);
 }
 
-.Facebook {
-    compose: fa-linkedin
+.Logo {
+    padding: 0;
+    margin: .5rem 0;
+    height: 6rem;
+}
+
+.WebMap {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.WebMap ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 15rem;
+    margin: 0 auto;
+    width: 25rem;
+    overflow: hidden;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.WebMap ul li {
+    flex-basis: 14rem;
+    flex: 1 1 auto;
+    width: 12rem;
+    padding: 0.5rem 0;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.MediaContainer {
+    display: block;
+    margin: 0;
+    padding: .5rem 0;
+    background-color: black;
+}
+
+.MediaTitle {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 16rem;
+    margin: 0 auto;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.Media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16rem;
+    margin: 0 auto;
+    color: white;
+}
+
+.Brand {
+    padding: 0 1rem;
+    font-size: 2.5rem;
+}
+
+@media(min-width: 600px) {
+    .Footer {
+        display: block;
+        overflow: hidden;
+        padding: 1rem 0;
+    }
+
+    .Logo {
+        display: none;
+    }
+
+    .WebMap {
+        float: left;
+        clear: left;
+        width: 27rem;
+    }
+
+    .WebMap ul {
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .WebMap ul li {
+        flex-basis: 14rem;
+        flex: 1 1 auto;
+        width: auto;
+        padding: 0.5rem 0;
+        color: white;
+        font-size: 0.9rem;
+    }
+
+    .MediaContainer {
+        float: right;
+        width: 10rem;
+        margin: 0;
+        background-color: unset;
+    }
+
+    .MediaTitle {
+        float: left;
+        display: unset;
+        box-sizing: border-box;
+        justify-content: unset;
+        text-align: right;
+        align-items: unset;
+        width: 7rem;
+        font-size: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 2.5rem;
+    }
+
+    .Media {
+        float: left;
+        display: block;
+        justify-content: unset;
+        align-items: unset;
+        width: 1.5rem;
+        padding: 0 .5rem;
+    }
+
+    .Media div {
+        padding: 0;
+    }
+
 }
