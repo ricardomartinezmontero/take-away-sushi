@@ -5,6 +5,7 @@ import classes from './Layout.module.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import TopDrawer from '../../components/Navigation/TopDrawer/TopDrawer';
 import DrawerToggle from '../../components/Navigation/TopDrawer/DrawerToggle/DrawerToggle';
+import Footer from '../../components/Footer/Footer';
 
 class Layout extends Component {
 
@@ -37,6 +38,9 @@ class Layout extends Component {
                 <main>
                     {this.props.children}
                 </main>
+                <footer>
+                    <Footer />
+                </footer>
             </React.Fragment>
         );
     }

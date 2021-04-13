@@ -20,16 +20,16 @@
     width: 100%;
 }
 
-@media (min-width: 600px) {
-    .TopDrawer {
-        display: none;
-    }
-}
-
 .Open {
     transform: translateY(0);
 }
 
 .Close {
     transform: translateY(-100%);
+}
+
+@media (min-width: 600px) {
+    .TopDrawer {
+        display: none;
+    }
 }
