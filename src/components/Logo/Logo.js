@@ -4,9 +4,7 @@ import burgerLogo from '../../assets/images/logo.svg';
 import classes from './Logo.module.css';
 
 const logo = (props) => (
-    <div className={classes.Logo}>
-        <img src={burgerLogo} alt="TakeAway"/>
-    </div>
+    <img className={classes.Img} src={burgerLogo} alt="TakeAway"/>
 );
 
 export default logo;

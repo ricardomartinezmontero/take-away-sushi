@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import classes from './Layout.module.css';
+
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import TopDrawer from '../../components/Navigation/TopDrawer/TopDrawer';
 import DrawerToggle from '../../components/Navigation/TopDrawer/DrawerToggle/DrawerToggle';
@@ -29,6 +31,9 @@ class Layout extends Component {
                 <TopDrawer 
                     open={this.state.showSideDrawer} 
                     closed={this.drawerClosedHandler} />
+                <div className={classes.Brand}>
+                    <p>Take sushi away</p>
+                </div>
                 <main>
                     {this.props.children}
                 </main>
