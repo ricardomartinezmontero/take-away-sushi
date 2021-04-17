@@ -1,0 +1,25 @@
+.SectionHeader {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Krona One";
+    font-size: 1rem;
+}
+
+.Angle {
+    position: absolute;
+    font-size: 2rem;
+    top: 0rem;
+    right: .5rem;
+}
+
+.AngleHidden {
+    display: none;
+}
+
+@media(min-width: 1024px) {
+    .Angle {
+        display: none;
+    }
+}

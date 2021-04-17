@@ -5,6 +5,7 @@
     width: 100%;
     font-family: "Krona One";
     background-color: rgb(234, 169, 41);
+    overflow: auto;
 }
 
 .Logo {
@@ -15,26 +16,13 @@
 
 .WebMap {
     display: flex;
-    justify-content: left;
-    align-items: center;
 }
 
 .WebMap ul {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    height: 15rem;
-    margin: 0 auto;
-    width: 25rem;
-    overflow: hidden;
-    justify-content: flex-start;
-    align-items: flex-start;
+    flex: 1;
 }
 
 .WebMap ul li {
-    flex-basis: 14rem;
-    flex: 1 1 auto;
-    width: 12rem;
     padding: 0.5rem 0;
     color: white;
     font-size: 0.9rem;
@@ -84,29 +72,24 @@
     }
 
     .WebMap {
+        display: flex;
         float: left;
-        clear: left;
         width: 27rem;
     }
 
     .WebMap ul {
-        margin: 0;
-        overflow: hidden;
+        flex: 1;
     }
 
     .WebMap ul li {
-        flex-basis: 14rem;
-        flex: 1 1 auto;
-        width: auto;
-        padding: 0.5rem 0;
         color: white;
         font-size: 0.9rem;
     }
 
     .MediaContainer {
         float: right;
-        width: 10rem;
         margin: 0;
+        padding-right: 1rem;
         background-color: unset;
     }
 
