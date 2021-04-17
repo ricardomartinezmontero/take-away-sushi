@@ -10,13 +10,14 @@ import Logo from '../Logo/Logo';
 
 const footer = (props) => {
     
-    library.add(fab)
+    library.add(fab);
 
     return (
         <div className={classes.Footer}>
             <div className={classes.Logo}>
                 <Logo />
             </div>
+
             <div className={classes.WebMap}>
                 <ul>
                     <li>Carta</li>
@@ -26,6 +27,8 @@ const footer = (props) => {
                     <li>Blog</li>
                     <li>Alergenos</li>
                     <li>Prensa</li>
+                </ul>
+                <ul>
                     <li>Solicita tu Factura</li>
                     <li>Politica de Privacidad</li>
                     <li>Aviso Legal</li>
