@@ -13,7 +13,7 @@ const sectionList = (props) => {
             itemClicked={props.itemClicked} />
     );
     return (
-        <div>
+        <div className={classes.SectionList}>
             {sectionElements}
         </div>
     );
