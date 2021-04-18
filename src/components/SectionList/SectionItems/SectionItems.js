@@ -30,6 +30,7 @@ class SectionItems extends Component {
                 <ItemList 
                     collapsed={this.state.sectionCollapsed}
                     items={this.props.items} 
+                    orderedItems={this.props.orderedItems}
                     itemClicked={this.props.itemClicked} />
             </section>
         );

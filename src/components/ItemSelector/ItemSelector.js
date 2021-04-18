@@ -4,31 +4,22 @@ import classes from './ItemSelector.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import item from '../ItemList/Item/Item';
 
 class ItemSelector extends Component {
 
     state = {
         item: {
-            name: "",
-            price: null,
-            amount: null
+            ...this.props.item
         },
-        totalPrice: 0
+        totalPrice: this.props.item.price * this.props.item.amount
     }
 
-    componentDidMount () {
-        this.setState({
-            item: this.props.item,
-            totalPrice: this.props.item.price * this.props.item.amount
-        });
-    }
-
-    alterItemAmount = (event, amount) => {
-        event.preventDefault();
-        console.log(this.state.item, amount);
+    alterItemAmount = (amount) => {
+        const updatedAmount = this.state.item.amount + amount;
         const updatedItem = {
             ...this.state.item,
-            amount: (this.state.item.amount + amount)
+            amount: (updatedAmount < 0) ? 0 : (this.state.item.amount + amount)
         };
         this.setState( prev => (
             {
@@ -40,6 +31,10 @@ class ItemSelector extends Component {
     }
 
     render () {
+
+        const isDisabledMinus = this.state.item.amount === 0;
+        const minusButtonStyles = isDisabledMinus ? [classes.AmountButton,  classes.AmountButtonDisabled] : [classes.AmountButton];
+
         return (
             <div className={classes.ItemSelector}>
                 <div className={classes.ItemName}>
@@ -53,9 +48,9 @@ class ItemSelector extends Component {
                 </p>
                 <div className={classes.AmountSelectorContainer}>
                     <div className={classes.AmountSelector}>
-                        <div 
-                            className={classes.AmountButton}
-                            onClick={(event) => this.alterItemAmount(event, -1)}>
+                        <div disabled
+                            className={minusButtonStyles.join(' ')}
+                            onClick={(event) => this.alterItemAmount(-1)}>
                             <span><FontAwesomeIcon icon={faMinus} /></span>
                         </div>
                         <div className={classes.AmountCounter}>
@@ -63,12 +58,12 @@ class ItemSelector extends Component {
                         </div>
                         <div
                             className={classes.AmountButton} 
-                            onClick={(event) => this.alterItemAmount(event, 1)}>
+                            onClick={(event) => this.alterItemAmount(1)}>
                             <span><FontAwesomeIcon icon={faPlus} /></span>
                         </div>
                     </div>
                 </div>
-                <div className={classes.Button}>
+                <div className={classes.Button} onClick={() => this.props.orderUpdateClick(this.state.item)}>
                     <div className={classes.ButtonTitle}>Actualizar pedido</div>
                     <div className={classes.ButtonPriceInfo}>{this.state.totalPrice}€</div>
                 </div>

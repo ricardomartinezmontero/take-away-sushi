@@ -17,7 +17,9 @@ const modalWindow = (props) => {
                         icon={faTimesCircle} 
                         onClick={props.closeClick} />
                 </div>
-                <ItemSelector item={props.item}/>
+                <ItemSelector 
+                    item={props.item}
+                    orderUpdateClick={props.orderUpdate} />
             </div>
         </div>
     );

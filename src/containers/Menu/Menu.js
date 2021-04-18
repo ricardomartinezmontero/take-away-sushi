@@ -178,7 +178,7 @@ class Menu extends Component {
                 ]
             }
         ],
-        order: [],
+        order: {},
         selectedItem: null,
         showItemSelector: false
     }
@@ -188,12 +188,16 @@ class Menu extends Component {
     }
 
     itemClickHandler = (itemName) => {
-        const item = {
-            ...this.state.menu.reduce((acc, section) => acc.concat(section.items), []).find(x => x.name === itemName),
-            amount: 0
-        };
+        const itemOrdered = this.state.order[itemName];
+        const itemOrderToUpdate = itemOrdered ? 
+            {...itemOrdered} :
+            {
+                ...this.state.menu.reduce((acc, section) => acc.concat(section.items), []).find(x => x.name === itemName),
+                amount: 0
+            };
+    
         this.setState({
-            selectedItem: item,
+            selectedItem: itemOrderToUpdate,
             showItemSelector: true
         });
     }
@@ -205,11 +209,24 @@ class Menu extends Component {
         });
     }
 
+    orderUpdateHandler = (itemOrder) => {
+        const orderUpdated = {
+            ...this.state.order, 
+            [itemOrder.name]: itemOrder
+        };
+        this.setState({
+            order: orderUpdated,
+            selectedItem: null,
+            showItemSelector: false
+        });
+    }
+
     render () {
 
         const modalItemSelector = this.state.showItemSelector ? 
             <ModalWindow 
                 item={this.state.selectedItem} 
+                orderUpdate={this.orderUpdateHandler}
                 closeClick={this.itemSelectorCloseHandler} /> : null;
 
         return (
@@ -218,10 +235,20 @@ class Menu extends Component {
                     <div className={classes.MenuItems}>
                         <SectionList 
                             sections={this.state.menu} 
+                            orderedItems={this.state.order}
                             itemClicked={this.itemClickHandler} />
                     </div>
                     <div className={classes.OrderSummary}>
-                        {this.state.order.map(x => <div key={x.name}>{x.name + ' ' + x.amount}</div>)}
+                        {
+                            Object
+                                .keys(this.state.order)
+                                .map(key => (
+                                        <div key={this.state.order[key].name} >
+                                                {this.state.order[key].name + ' ' + this.state.order[key].amount}
+                                        </div>
+                                    )
+                                )
+                        }
                     </div>
                 </div>
                 {modalItemSelector}

@@ -12,7 +12,8 @@ const itemList = (props) => {
                 name={x.name} 
                 description={x.description} 
                 price={x.price} 
-                itemClicked={props.itemClicked} />
+                itemClicked={props.itemClicked} 
+                orderedItem={props.orderedItems[x.name]} />
         );
 
         const itemContainerClasses = [

@@ -50,6 +50,10 @@
     font-size: 1.5rem;
 }
 
+.AmountButtonDisabled {
+    color: darkgray;
+}
+
 .AmountCounter {
     display: inline-block;
     box-sizing: border-box;
