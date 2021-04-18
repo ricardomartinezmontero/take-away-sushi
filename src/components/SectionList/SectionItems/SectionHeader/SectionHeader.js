@@ -7,7 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const sectionHeader = (props) => {
     return (
-        <div className={classes.SectionHeader}>
+        <div 
+            className={classes.SectionHeader}
+            onClick={props.onClick} >
             <h2>{props.headerText}</h2>
             {
                 !props.collapsed ? 

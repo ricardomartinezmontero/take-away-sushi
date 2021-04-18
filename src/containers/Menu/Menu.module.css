@@ -1,15 +1,18 @@
 .Menu {
+    margin: 0;
+    padding: 0;
+}
+
+.MenuContainer {
     display: flex;
     align-items: stretch;
     margin: 0 auto;
     padding: 0 0.5rem;
-    box-sizing: border-box;
     width: 100%;
     overflow: auto;
 }
 
 .MenuItems {
-    box-sizing: border-box;
     width: 100%;
 }
 

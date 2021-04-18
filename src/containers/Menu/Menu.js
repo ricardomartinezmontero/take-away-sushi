@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import classes from './Menu.module.css';
 
 import SectionList from '../../components/SectionList/SectionList';
+import ModalWindow from '../../UI/ModalWindow/ModalWindow';
 
 class Menu extends Component {
 
@@ -176,28 +177,54 @@ class Menu extends Component {
                     }
                 ]
             }
-        ]
+        ],
+        order: [],
+        selectedItem: null,
+        showItemSelector: false
     }
 
     componentDidMount () {
         console.log(this.props);
     }
 
-    itemClickHandler = (event) => {
-        console.log('[Menu] item clicked');
+    itemClickHandler = (itemName) => {
+        const item = {
+            ...this.state.menu.reduce((acc, section) => acc.concat(section.items), []).find(x => x.name === itemName),
+            amount: 0
+        };
+        this.setState({
+            selectedItem: item,
+            showItemSelector: true
+        });
+    }
+
+    itemSelectorCloseHandler = () => {
+        this.setState({
+            selectedItem: null,
+            showItemSelector: false
+        });
     }
 
     render () {
+
+        const modalItemSelector = this.state.showItemSelector ? 
+            <ModalWindow 
+                item={this.state.selectedItem} 
+                closeClick={this.itemSelectorCloseHandler} /> : null;
+
         return (
             <div className={classes.Menu}>
-                <div className={classes.MenuItems}>
-                    <SectionList 
-                        sections={this.state.menu} 
-                        itemClicked={this.itemClickHandler} />
+                <div className={classes.MenuContainer}>
+                    <div className={classes.MenuItems}>
+                        <SectionList 
+                            sections={this.state.menu} 
+                            itemClicked={this.itemClickHandler} />
+                    </div>
+                    <div className={classes.OrderSummary}>
+                        {this.state.order.map(x => <div key={x.name}>{x.name + ' ' + x.amount}</div>)}
+                    </div>
                 </div>
-                <div className={classes.OrderSummary}>
-                    order summary
-                </div>
+                {modalItemSelector}
             </div>
         );
     }

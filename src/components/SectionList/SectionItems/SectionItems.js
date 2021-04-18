@@ -11,7 +11,7 @@ class SectionItems extends Component {
         sectionCollapsed: true
     }
 
-    sectionHeaderClickHandler = (event) => {
+    toggleSectionOpenHandler = (event) => {
         this.setState((prev) => {
             return {
                 sectionCollapsed: !prev.sectionCollapsed
@@ -22,12 +22,11 @@ class SectionItems extends Component {
     render () {
         return (
             <section 
-                className={classes.SectionItems}
-                onClick={this.sectionHeaderClickHandler} >
+                className={classes.SectionItems} >
                 <SectionHeader 
                     headerText={this.props.section} 
                     collapsed={this.state.sectionCollapsed}
-                    onClick={this.sectionHeaderClickHandler} />
+                    onClick={this.toggleSectionOpenHandler} />
                 <ItemList 
                     collapsed={this.state.sectionCollapsed}
                     items={this.props.items} 

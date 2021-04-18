@@ -8,8 +8,19 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 class ItemSelector extends Component {
 
     state = {
-        item: this.props.item,
-        totalPrice: this.props.item.price * this.props.item.amount
+        item: {
+            name: "",
+            price: null,
+            amount: null
+        },
+        totalPrice: 0
+    }
+
+    componentDidMount () {
+        this.setState({
+            item: this.props.item,
+            totalPrice: this.props.item.price * this.props.item.amount
+        });
     }
 
     alterItemAmount = (event, amount) => {
