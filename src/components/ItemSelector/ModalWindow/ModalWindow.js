@@ -5,7 +5,7 @@ import classes from './ModalWindow.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-import ItemSelector from '../../components/ItemSelector/ItemSelector';
+import ItemSelector from '../ItemSelector';
 
 const modalWindow = (props) => {
     return (
@@ -19,7 +19,7 @@ const modalWindow = (props) => {
                 </div>
                 <ItemSelector 
                     item={props.item}
-                    orderUpdateClick={props.orderUpdate} />
+                    orderUpdate={props.orderUpdate} />
             </div>
         </div>
     );

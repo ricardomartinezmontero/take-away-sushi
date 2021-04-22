@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import classes from './Menu.module.css';
 
 import SectionList from '../../components/SectionList/SectionList';
-import ModalWindow from '../../UI/ModalWindow/ModalWindow';
+import ModalWindow from '../../components/ItemSelector/ModalWindow/ModalWindow';
+
+import OrderSummary from '../../components/OrderSummary/OrderSummary';
 
 class Menu extends Component {
 
@@ -183,16 +185,14 @@ class Menu extends Component {
         showItemSelector: false
     }
 
-    componentDidMount () {
-        console.log(this.props);
-    }
+    findItemInMenu = (menu, itemName) => menu.reduce((acc, section) => acc.concat(section.items), []).find(x => x.name === itemName)
 
     itemClickHandler = (itemName) => {
         const itemOrdered = this.state.order[itemName];
         const itemOrderToUpdate = itemOrdered ? 
             {...itemOrdered} :
             {
-                ...this.state.menu.reduce((acc, section) => acc.concat(section.items), []).find(x => x.name === itemName),
+                ...this.findItemInMenu(this.state.menu, itemName),
                 amount: 0
             };
     
@@ -209,47 +209,57 @@ class Menu extends Component {
         });
     }
 
-    orderUpdateHandler = (itemOrder) => {
+    orderUpdateHandler = (itemId, amount) => {        
+        
+        const itemOrdered = this.state.order[itemId];
+        const itemOrderToUpdate = itemOrdered ? itemOrdered : this.findItemInMenu(this.state.menu, itemId);
+
+        console.log("is item ordered ", itemOrdered, "with itemId", itemId, amount);
+
+        const updatedItem = {
+            ...itemOrderToUpdate,
+            amount: (amount < 0) ? 0 : amount
+        };
+    
         const orderUpdated = {
             ...this.state.order, 
-            [itemOrder.name]: itemOrder
+            [itemId]: updatedItem
         };
+
+        if (itemOrdered && updatedItem.amount === 0) {
+            delete orderUpdated[itemId];
+        }
+
         this.setState({
             order: orderUpdated,
             selectedItem: null,
             showItemSelector: false
         });
+        
     }
 
     render () {
 
+        console.log(this.state.order);
+
         const modalItemSelector = this.state.showItemSelector ? 
             <ModalWindow 
                 item={this.state.selectedItem} 
-                orderUpdate={this.orderUpdateHandler}
+                orderUpdate={this.orderUpdateHandler} 
                 closeClick={this.itemSelectorCloseHandler} /> : null;
 
         return (
             <div className={classes.Menu}>
-                <div className={classes.MenuContainer}>
-                    <div className={classes.MenuItems}>
-                        <SectionList 
-                            sections={this.state.menu} 
-                            orderedItems={this.state.order}
-                            itemClicked={this.itemClickHandler} />
-                    </div>
-                    <div className={classes.OrderSummary}>
-                        {
-                            Object
-                                .keys(this.state.order)
-                                .map(key => (
-                                        <div key={this.state.order[key].name} >
-                                                {this.state.order[key].name + ' ' + this.state.order[key].amount}
-                                        </div>
-                                    )
-                                )
-                        }
-                    </div>
+                <div className={classes.MenuItems}>
+                    <SectionList 
+                        sections={this.state.menu} 
+                        orderedItems={this.state.order}
+                        itemClicked={this.itemClickHandler} />
+                </div>
+                <div className={classes.OrderSummary}>
+                    <OrderSummary 
+                        order={this.state.order} 
+                        removeItem={this.orderUpdateHandler} />
                 </div>
                 {modalItemSelector}
             </div>

@@ -63,7 +63,7 @@ class ItemSelector extends Component {
                         </div>
                     </div>
                 </div>
-                <div className={classes.Button} onClick={() => this.props.orderUpdateClick(this.state.item)}>
+                <div className={classes.Button} onClick={() => this.props.orderUpdate(this.state.item.name, this.state.item.amount)}>
                     <div className={classes.ButtonTitle}>Actualizar pedido</div>
                     <div className={classes.ButtonPriceInfo}>{this.state.totalPrice}€</div>
                 </div>
