@@ -8,6 +8,7 @@ import classes from './Menu.module.css';
 import SectionList from '../../components/SectionList/SectionList';
 import ModalWindow from '../../components/ItemSelector/ModalWindow/ModalWindow';
 import OrderSummary from '../../components/OrderSummary/OrderSummary';
+import OrderSummaryButton from '../../components/OrderSummary/OrderSummaryButton/OrderSummaryButton';
 import Spinner from '../../UI/Spinner/Spinner';
 
 class Menu extends Component {
@@ -52,9 +53,20 @@ class Menu extends Component {
         this.itemSelectorCloseHandler();
     }
 
+    countItemsInOrder = (order) => {
+        return Object.keys(order).reduce((acc, itemName) => acc + order[itemName].amount, 0)
+    }
+
     render () {
 
-        console.log('[Menu]', this.props.order);
+        const numberOfItemsOrdered = this.countItemsInOrder(this.props.order);
+
+        const shoppingCartButtom = numberOfItemsOrdered > 0 ?
+            (   
+                <div className={classes.OrderSummaryButton}>
+                    <OrderSummaryButton text={numberOfItemsOrdered} />
+                </div>
+            ) : null;
 
         const modalItemSelector = this.state.showItemSelector ? 
             <ModalWindow 
@@ -76,6 +88,7 @@ class Menu extends Component {
                         removeItem={this.orderUpdateHandler} />
                 </div>
                 {modalItemSelector}
+                {shoppingCartButtom}
             </div>
         );
 

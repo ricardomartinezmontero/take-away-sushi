@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
 import classes from './Layout.module.css';
 
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
@@ -41,9 +43,16 @@ class Layout extends Component {
                 <footer>
                     <Footer />
                 </footer>
+                <div className={Object.keys(this.props.order).length > 0 ? classes.ShowMarginBottomDisplay : classes.HideMarginBottomDisplay}></div>
             </React.Fragment>
         );
     }
 }
 
-export default Layout;
+const mapStateToProps = state => {
+    return {
+        order: state.order.order
+    };
+};
+
+export default connect(mapStateToProps)(Layout);
