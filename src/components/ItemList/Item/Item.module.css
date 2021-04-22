@@ -13,34 +13,21 @@
 
 .ItemDetails {
     width: 100%;
-    height: 100%;
-    overflow: auto;
 }
 
-.ItemDetails div h2 {
-    line-height: 2rem;
-    padding: 0;
-    margin: 0;
-    font-family: "Krona One";
-    font-size: 1rem; 
+.ItemTitle {
+    width: 100%;
+    display: flex;
+    align-items:flex-end;
+    margin-top:5px;
 }
 
-.ItemDetails p {
-    display: block;
-    overflow: auto;
-    padding: 0;
+.ItemTitle h2 {
     margin: 0;
-    font-size: 1rem;
-    color: rgb(73, 73, 73);
 }
 
-.ItemDetails span {
-    line-height: 1rem;
-    padding: 0;
-    margin: 0;
-    font-size: 1rem;
-    font-weight: bold;
-    color: rgb(73, 73, 73);
+.Separator{
+    flex-grow:1;
 }
 
 .Item:hover {

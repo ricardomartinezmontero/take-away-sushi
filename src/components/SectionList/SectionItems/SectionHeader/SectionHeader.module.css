@@ -1,25 +1,30 @@
 .SectionHeader {
-    position: relative;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+    display: inline-block;
+    width: 100%;
+    height: 4rem;
     font-family: "Krona One";
+    padding: 0 1rem;
     font-size: 1rem;
+    overflow: auto;
+    cursor: pointer;
 }
 
-.Angle {
-    position: absolute;
+.SectionHeader h2 {
+    display: inline-block;
+    height: 4rem;
+    margin: 0;
+    line-height: 4rem;
+}
+
+.SectionHeader svg {
     font-size: 2rem;
-    top: 0rem;
-    right: .5rem;
-}
-
-.AngleHidden {
-    display: none;
+    height: 4rem;
+    float: right;
 }
 
 @media(min-width: 1024px) {
-    .Angle {
+
+    .SectionHeader svg {
         display: none;
     }
 }

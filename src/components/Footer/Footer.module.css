@@ -72,13 +72,8 @@
     }
 
     .WebMap {
-        display: flex;
         float: left;
-        width: 27rem;
-    }
-
-    .WebMap ul {
-        flex: 1;
+        width: 26rem;
     }
 
     .WebMap ul li {
@@ -89,7 +84,7 @@
     .MediaContainer {
         float: right;
         margin: 0;
-        padding-right: 1rem;
+        padding-right: 2rem;
         background-color: unset;
     }
 
@@ -113,7 +108,7 @@
         justify-content: unset;
         align-items: unset;
         width: 1.5rem;
-        padding: 0 .5rem;
+        padding: 0 1rem;
     }
 
     .Media div {

@@ -10,10 +10,12 @@ const sectionList = (props) => {
             key={x.section} 
             section={x.section} 
             items={x.items} 
+            orderedItems={props.orderedItems}
             itemClicked={props.itemClicked} />
     );
+
     return (
-        <div>
+        <div className={classes.SectionList}>
             {sectionElements}
         </div>
     );

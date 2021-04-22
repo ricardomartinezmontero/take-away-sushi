@@ -7,12 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const sectionHeader = (props) => {
     return (
-        <div className={classes.SectionHeader}>
+        <div 
+            className={classes.SectionHeader}
+            onClick={props.onClick} >
             <h2>{props.headerText}</h2>
             {
                 !props.collapsed ? 
-                    <FontAwesomeIcon className={classes.Angle} icon={faAngleUp} /> :
-                    <FontAwesomeIcon className={classes.Angle} icon={faAngleDown} />
+                    <FontAwesomeIcon icon={faAngleUp} /> :
+                    <FontAwesomeIcon icon={faAngleDown} />
             }
         </div>
     );

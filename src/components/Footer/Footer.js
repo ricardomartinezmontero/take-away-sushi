@@ -17,7 +17,7 @@ const footer = (props) => {
             <div className={classes.Logo}>
                 <Logo />
             </div>
-
+        
             <div className={classes.WebMap}>
                 <ul>
                     <li>Carta</li>

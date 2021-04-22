@@ -1,15 +1,9 @@
 .Menu {
-    display: flex;
-    align-items: stretch;
-    margin: 0 auto;
-    padding: 0 0.5rem;
-    box-sizing: border-box;
-    width: 100%;
-    overflow: auto;
+    margin: 0;
+    padding: 0;
 }
 
 .MenuItems {
-    box-sizing: border-box;
     width: 100%;
 }
 
@@ -19,21 +13,31 @@
 
 @media(min-width: 600px) {
     .Menu {
-        display: flex;
-        align-items: stretch;
-        max-width: 70rem;
+        width: 90%;
         margin: 0 auto;
     }
     
+}
+
+@media(min-width: 1024px) {
+    .Menu {
+        width: 90%;
+        margin: 2rem auto;
+    }
+    
     .MenuItems {
-        margin: 0 1rem;
+        display: inline-block;
+        vertical-align: top;
         width: 70%;
     }
 
     .OrderSummary {
-        display: unset;
-        margin: 0 1rem;
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 20px;
         width: 30%;
+        position: sticky;
+        top: 2rem;
     }
     
 }

@@ -1,0 +1,97 @@
+.ItemSelector {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: .5rem;
+    background-color: white;
+}
+
+.ItemName {
+    width: 100%;
+}
+
+.ItemName h1 {
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.ItemPrice {
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ItemDescription {
+    width: 100%;
+    text-align: center;
+}
+
+.AmountSelectorContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.AmountSelector {
+    display: inline-block;
+    margin: 2rem 0;
+}
+
+.AmountButton {
+    display: inline-block;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 2rem;
+    line-height: 2rem;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.AmountButtonDisabled {
+    color: darkgray;
+}
+
+.AmountCounter {
+    display: inline-block;
+    box-sizing: border-box;
+    line-height: 2rem;
+    font-size: 2.5rem;
+    width: 3rem;
+    margin: 0 2rem;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    padding: 1rem;
+    margin: 0;
+    height: 5rem;
+    width: 100%;
+    background-color: black;
+}
+
+.ButtonTitle {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.ButtonPriceInfo {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
