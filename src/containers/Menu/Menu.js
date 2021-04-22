@@ -1,198 +1,35 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
+
 import classes from './Menu.module.css';
 
 import SectionList from '../../components/SectionList/SectionList';
 import ModalWindow from '../../components/ItemSelector/ModalWindow/ModalWindow';
-
 import OrderSummary from '../../components/OrderSummary/OrderSummary';
+import Spinner from '../../UI/Spinner/Spinner';
 
 class Menu extends Component {
 
     state = {
-        menu: [
-            {
-                section: "Combos",
-                items: [
-                    {
-                        name: "Combo 1",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "Gyozas de pollo, tartar de salmón y ensalada de col china",
-                        price: 14.90
-                    },
-                    {
-                        name: "Combo 2",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "Gyozas de pollo, tartar de atún y ensalada de col china",
-                        price: 14.90
-                    },
-                    {
-                        name: "Combo 3",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "Gyozas de pollo,bandeja maki mix (24 piezas) y ensalada wakame",
-                        price: 16.90
-                    }
-                ]
-            },
-            {
-                section: "Bandejas",
-                items: [
-                    {
-                        name: "Bandeja Salmón, 16 Piezas",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "4 sashimi salmón, 4 nigiri salmón y 8 philadelphia roll",
-                        price: 16.50
-                    },
-                    {
-                        name: "Bandeja Atún, 16 Piezas",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "4 sashimi atún, 4 nigiri atún y 8 california atún roll",
-                        price: 16.50
-                    },
-                    {
-                        name: "Bandeja Vegetal, 16 Piezas",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "4 maki aguacate, 4 maki vegetal y 8 mango roll",
-                        price: 16.50
-                    },
-                    {
-                        name: "Bandeja sin Pescado Crudo, 16 Piezas",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "4 pollo roll, 2 nigiri anguila, 2 nigiri langostino, 4 sapporo roll y 4 cangrejo roll",
-                        price: 16.50
-                    },
-                    {
-                        name: "Bandeja Gourmet Mix, 24 Piezas",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "4 green dragon roll, 4 california atún roll, 4 pez mantequilla trufado roll, 4 philadelphia roll, 4 maki atún y 4 maki salmón",
-                        price: 16.50
-                    }
-                ]
-            },
-            {
-                section: "Entrantes",
-                items: [
-                    {
-                        name: "Gyozas de Pollo, 4 Unidades",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 3.90
-                    },
-                    {
-                        name: "Ensalada Wakame",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 4.50
-                    },
-                    {
-                        name: "Edame",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 5.50
-                    },
-                    {
-                        name: "Goyzas de Vegetales, 4 Unidades",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 3.90
-                    },
-                    {
-                        name: "Ceviche de Lubina",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 3.50
-                    }
-                ]
-            },
-            {
-                section: "Nigiri",
-                items: [
-                    {
-                        name: "Nigiri Salmón, 2 Unidades",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 3.95
-                    },
-                    {
-                        name: "Nigiri Salmón Flambeado, 2 Unidades",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 3.95
-                    },
-                    {
-                        name: "Nigiri Atún, 2 Unidades",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 4.50
-                    },
-                    {
-                        name: "Nigiri Pez Mantequilla, 2 Unidades",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 4.95
-                    }
-                ]
-            },
-            {
-                section: "Postres",
-                items: [
-                    {
-                        name: "Arroz con Leche de Coco",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 5.50
-                    },
-                    {
-                        name: "Mousse de Chocolate",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 4.50
-                    }
-                ]
-            },
-            {
-                section: "Bebida",
-                items: [
-                    {
-                        name: "Coca Cola Normal",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 2.00
-                    },
-                    {
-                        name: "Coca Cola Zero",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 2.00
-                    },
-                    {
-                        name: "Fanta Naranja Normal",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 2.00
-                    },
-                    {
-                        name: "Fanta Naranja Zero",
-                        image: process.env.PUBLIC_URL + 'prod1.jpg',
-                        description: "",
-                        price: 2.00
-                    }
-                ]
-            }
-        ],
-        order: {},
         selectedItem: null,
         showItemSelector: false
+    }
+
+    componentDidMount () {
+        console.log('[Menu.js] Loading menu ...');
+        this.props.onFetchMenu();
     }
 
     findItemInMenu = (menu, itemName) => menu.reduce((acc, section) => acc.concat(section.items), []).find(x => x.name === itemName)
 
     itemClickHandler = (itemName) => {
-        const itemOrdered = this.state.order[itemName];
+        const itemOrdered = this.props.order[itemName];
         const itemOrderToUpdate = itemOrdered ? 
             {...itemOrdered} :
             {
-                ...this.findItemInMenu(this.state.menu, itemName),
+                ...this.findItemInMenu(this.props.menu, itemName),
                 amount: 0
             };
     
@@ -209,38 +46,15 @@ class Menu extends Component {
         });
     }
 
-    orderUpdateHandler = (itemId, amount) => {        
-        
-        const itemOrdered = this.state.order[itemId];
-        const itemOrderToUpdate = itemOrdered ? itemOrdered : this.findItemInMenu(this.state.menu, itemId);
-
-        console.log("is item ordered ", itemOrdered, "with itemId", itemId, amount);
-
-        const updatedItem = {
-            ...itemOrderToUpdate,
-            amount: (amount < 0) ? 0 : amount
-        };
-    
-        const orderUpdated = {
-            ...this.state.order, 
-            [itemId]: updatedItem
-        };
-
-        if (itemOrdered && updatedItem.amount === 0) {
-            delete orderUpdated[itemId];
-        }
-
-        this.setState({
-            order: orderUpdated,
-            selectedItem: null,
-            showItemSelector: false
-        });
-        
+    orderUpdateHandler = (itemId, amount) => {    
+        const item = this.findItemInMenu(this.props.menu, itemId);
+        this.props.onUpdateOrder(item, amount);
+        this.itemSelectorCloseHandler();
     }
 
     render () {
 
-        console.log(this.state.order);
+        console.log('[Menu]', this.props.order);
 
         const modalItemSelector = this.state.showItemSelector ? 
             <ModalWindow 
@@ -248,23 +62,40 @@ class Menu extends Component {
                 orderUpdate={this.orderUpdateHandler} 
                 closeClick={this.itemSelectorCloseHandler} /> : null;
 
-        return (
+        const componentContent = (
             <div className={classes.Menu}>
                 <div className={classes.MenuItems}>
                     <SectionList 
-                        sections={this.state.menu} 
-                        orderedItems={this.state.order}
+                        sections={this.props.menu} 
+                        orderedItems={this.props.order}
                         itemClicked={this.itemClickHandler} />
                 </div>
                 <div className={classes.OrderSummary}>
                     <OrderSummary 
-                        order={this.state.order} 
+                        order={this.props.order} 
                         removeItem={this.orderUpdateHandler} />
                 </div>
                 {modalItemSelector}
             </div>
         );
+
+        return this.props.loadingMenu ? <Spinner /> : componentContent;
     }
 }
 
-export default Menu;
+const mapStateToProps = state => {
+    return {
+        loadingMenu: state.menu.idle,
+        menu: state.menu.menu,
+        order: state.order.order
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchMenu: () => dispatch(actions.fetchMenu()),
+        onUpdateOrder: (item, amount) => dispatch(actions.updateOrder(item, amount))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

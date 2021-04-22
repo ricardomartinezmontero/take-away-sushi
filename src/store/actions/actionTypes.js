@@ -1,0 +1,7 @@
+//MENU
+export const SET_MENU = 'SET_MENU';
+export const FETCH_MENU_START = 'FETCH_MENU_START';
+export const FETCH_MENU_FAILED = 'FETCH_MENU_FAILED';
+
+//ORDER
+export const UPDATE_ORDER = 'UPDATE_ORDER';
