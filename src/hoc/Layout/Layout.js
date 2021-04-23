@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 
 import classes from './Layout.module.css';
 
@@ -43,7 +44,11 @@ class Layout extends Component {
                 <footer>
                     <Footer />
                 </footer>
-                <div className={Object.keys(this.props.order).length > 0 ? classes.ShowMarginBottomDisplay : classes.HideMarginBottomDisplay}></div>
+                <Route 
+                    path={'/menu'} exact
+                    render={() => (
+                        <div className={(Object.keys(this.props.order).length > 0 && !this.props.loadingMenu) ? classes.ShowMarginBottomDisplay : classes.HideMarginBottomDisplay}></div>
+                    )} />
             </React.Fragment>
         );
     }
@@ -51,7 +56,8 @@ class Layout extends Component {
 
 const mapStateToProps = state => {
     return {
-        order: state.order.order
+        order: state.order.order,
+        loadingMenu: state.menu.idle
     };
 };
 
