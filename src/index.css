@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   background-color: rgb(225, 227, 226);
@@ -8,9 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body * {
-  box-sizing: border-box;
-}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

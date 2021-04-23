@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
+import OrderSummary from '../../components/OrderSummary/OrderSummary';
+
 import classes from './Order.module.css';
 
 class Order extends Component {
     render () {
         return (
-            <div className={classes.Order}>
-                This is Order component
-            </div>
+            <OrderSummary 
+                order={this.props.order} 
+                removeItem={() => {}} />
         );
     }
 }
 
-export default Order;
+const mapStateToProps = state => {
+    return {
+        loadingMenu: state.menu.idle,
+        menu: state.menu.menu,
+        order: state.order.order
+    };
+};
+
+export default connect(mapStateToProps)(Order);

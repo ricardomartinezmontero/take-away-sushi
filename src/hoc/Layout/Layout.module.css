@@ -17,3 +17,23 @@
     margin: 0 auto;
     text-align: center;
 }
+
+.ShowMarginBottomDisplay {
+    height: 4rem;
+    width: 100%;
+}
+
+.HideMarginBottomDisplay {
+    display: none;
+}
+
+@media(min-width: 768px) {
+    .ShowMarginBottomDisplay {
+        display: none;
+    }
+
+    .HideMarginBottomDisplay {
+        display: none;
+    }
+}
+

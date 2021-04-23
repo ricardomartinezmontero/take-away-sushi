@@ -36,9 +36,7 @@ const orderSummary = (props) => {
 
     return (
         <div className={classes.OrderSummary}>
-            <div className={classes.Title}>
-                <h2>Tu Pedido</h2>
-            </div>
+            <h2 className={classes.Title}>Mi Pedido</h2>
             {orderList}
             <div className={classes.Total}>
                 <div className={classes.TotalTittle}>Total</div>
@@ -46,9 +44,11 @@ const orderSummary = (props) => {
                     {totalPrice(props.order).toFixed(2)}€
                 </div>
             </div>
-            <button className={classes.Pay} disabled={isEmptyOrder ? true : false}>
-                <span>Pagar</span>
-            </button>
+            <div className={classes.PayContiner} >
+                <button className={classes.Pay} disabled={isEmptyOrder ? true : false}>
+                    <span>Realizar Pedido</span>
+                </button>
+            </div>
         </div>
     );
 };

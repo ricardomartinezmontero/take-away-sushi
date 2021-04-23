@@ -10,5 +10,6 @@
         border-bottom-style: unset;
         border-bottom-width: unset;
         border-bottom-color: unset;
+        overflow: unset;
     }
 }

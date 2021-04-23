@@ -24,6 +24,10 @@
 
 @media(min-width: 1024px) {
 
+    .SectionHeader {
+        padding: 0;
+    }
+
     .SectionHeader svg {
         display: none;
     }

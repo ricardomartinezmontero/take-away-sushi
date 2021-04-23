@@ -12,14 +12,12 @@ const topDrawer = (props) => {
     }
 
     return (
-        <React.Fragment>
-            <div className={attachedClasses.join(' ')} onClick={props.closed}>
-                <nav>
-                    <NavigationItems />
-                </nav>
-                <div className={classes.Footer}></div>
-            </div>
-        </React.Fragment>
+        <div className={attachedClasses.join(' ')} onClick={props.closed}>
+            <nav>
+                <NavigationItems />
+            </nav>
+            <div className={classes.Footer}></div>
+        </div>
     );
 };
 
