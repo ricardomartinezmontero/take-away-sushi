@@ -9,7 +9,9 @@ import Badge from '../../../UI/Badge/Badge';
 
 const orderSummaryButton = (props) => {
     return (
-        <button className={classes.OrderSummaryButton}>
+        <button 
+            className={classes.OrderSummaryButton}
+            onClick={props.toggleOrderSummary} >
             <div className={classes.ShoppingCart}>
                 <FontAwesomeIcon icon={faShoppingBasket} />
             </div>

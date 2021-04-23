@@ -7,6 +7,7 @@ import classes from './Menu.module.css';
 
 import SectionList from '../../components/SectionList/SectionList';
 import ModalWindow from '../../components/ItemSelector/ModalWindow/ModalWindow';
+import OrderSummaryModal from '../../components/OrderSummary/OrderSummaryModal/OrderSummaryModal';
 import OrderSummary from '../../components/OrderSummary/OrderSummary';
 import OrderSummaryButton from '../../components/OrderSummary/OrderSummaryButton/OrderSummaryButton';
 import Spinner from '../../UI/Spinner/Spinner';
@@ -15,7 +16,8 @@ class Menu extends Component {
 
     state = {
         selectedItem: null,
-        showItemSelector: false
+        showItemSelector: false,
+        showOrderSummaryModal: false
     }
 
     componentDidMount () {
@@ -47,6 +49,14 @@ class Menu extends Component {
         });
     }
 
+    toggleOrderSummaryHandler = () => {
+        this.setState(prevState => {
+            return ({
+                showOrderSummaryModal: !prevState.showOrderSummaryModal
+            });
+        });
+    }
+
     orderUpdateHandler = (itemId, amount) => {    
         const item = this.findItemInMenu(this.props.menu, itemId);
         this.props.onUpdateOrder(item, amount);
@@ -64,7 +74,9 @@ class Menu extends Component {
         const shoppingCartButtom = numberOfItemsOrdered > 0 ?
             (   
                 <div className={classes.OrderSummaryButton}>
-                    <OrderSummaryButton text={numberOfItemsOrdered} />
+                    <OrderSummaryButton 
+                        text={numberOfItemsOrdered}
+                        toggleOrderSummary={this.toggleOrderSummaryHandler} />
                 </div>
             ) : null;
 
@@ -87,6 +99,11 @@ class Menu extends Component {
                         order={this.props.order} 
                         removeItem={this.orderUpdateHandler} />
                 </div>
+                <OrderSummaryModal
+                    toggleOrderSummary={this.toggleOrderSummaryHandler}
+                    display={this.state.showOrderSummaryModal}
+                    order={this.props.order}
+                    removeItem={this.orderUpdateHandler} />
                 {modalItemSelector}
                 {shoppingCartButtom}
             </div>
