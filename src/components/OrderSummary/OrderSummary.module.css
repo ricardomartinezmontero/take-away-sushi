@@ -1,15 +1,14 @@
 .OrderSummary {
-    padding: .5rem;
     background-color: white;
-    border-style: solid;
-    border-color: gray;
-    border-width: .1rem;
 }
 
 .Title {
-    border-bottom-style: solid;
-    border-bottom-color: black;
-    border-bottom-width: .1rem;
+    color: white;
+    background-color: black;
+    text-transform: uppercase;
+    line-height: 3rem;
+    text-align: center;
+    margin: 0;
 }
 
 .OrderList {
@@ -17,7 +16,7 @@
     align-items: center;
     justify-content: center;
     color: black;
-    margin: 0.5rem 0;
+    padding: .5rem .5rem;
     width: 100%;
 }
 
@@ -55,7 +54,7 @@
     align-items: center;
     justify-content: center;
     color: black;
-    margin: 0;
+    padding: .5rem .5rem;
     height: 5rem;
     width: 100%;
 }
@@ -78,11 +77,16 @@
     font-weight: bold;
 }
 
+.PayContiner {
+    padding: .8rem;
+}
+
 .Pay {
-    display: block;
+    display: inline-block;
     width: 100%;
     height: 3rem;
-    font: inherit;
+    font-size: 1.5rem;
+    text-transform: uppercase;
     color: white;
     font-weight: bold;
     background-color: black;

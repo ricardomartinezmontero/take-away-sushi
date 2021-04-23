@@ -4,11 +4,14 @@ import classes from './Badge.module.css';
 
 const badge = (props) => {
 
-    const styles = [classes.Badge, props.borderShape === "square" ? classes.Badge__square : classes.Badge__circle, props.className ? props.className : '']
+    const styles = [classes.Badge, props.className ? props.className : '']
 
     return (
         <div className={styles.join(' ')}>
-            <span>{props.text}</span>
+            <span 
+                className={props.borderShape === "square" ? classes.Badge__square : classes.Badge__circle}>
+                {props.text}
+            </span>
         </div>
     );
 };

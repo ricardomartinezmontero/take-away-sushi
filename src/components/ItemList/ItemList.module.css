@@ -1,5 +1,4 @@
 .ItemList {
-    box-sizing: border-box;
     overflow: hidden;
 }
 
@@ -16,6 +15,7 @@
     .ItemList {
         height: auto;
         transition: none;
+        overflow: unset;
     }
 
     .Open {

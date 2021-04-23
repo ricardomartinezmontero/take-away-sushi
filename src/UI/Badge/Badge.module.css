@@ -7,7 +7,7 @@
     text-align: center;
 }
 
-.Badge__circle span {
+.Badge__circle {
     font-size: 1rem;
     font-weight: bold;
     background: black;
@@ -18,7 +18,7 @@
     line-height: 1.5em;
 }
 
-.Badge__square span {
+.Badge__square {
     font-size: 1rem;
     font-weight: bold;
     background: black;
