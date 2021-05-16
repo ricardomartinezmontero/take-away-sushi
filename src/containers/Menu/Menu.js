@@ -1,131 +1,119 @@
-import React, { Component } from 'react';
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { connect } from 'react-redux';
-import * as actions from '../../store/actions/index';
+import classes from "./Menu.module.css";
 
-import classes from './Menu.module.css';
+import { fetchMenu } from '../../store/actions/menu';
+import { updateOrder } from '../../store/actions/order';
 
-import SectionList from '../../components/SectionList/SectionList';
-import ModalWindow from '../../components/ItemSelector/ModalWindow/ModalWindow';
-import OrderSummaryModal from '../../components/OrderSummary/OrderSummaryModal/OrderSummaryModal';
-import OrderSummary from '../../components/OrderSummary/OrderSummary';
-import OrderSummaryButton from '../../components/OrderSummary/OrderSummaryButton/OrderSummaryButton';
-import Spinner from '../../UI/Spinner/Spinner';
+import SectionList from "../../components/SectionList/SectionList";
+import ModalWindow from "../../components/ItemSelector/ModalWindow/ModalWindow";
+import OrderSummaryModal from "../../components/OrderSummary/OrderSummaryModal/OrderSummaryModal";
+import OrderSummary from "../../components/OrderSummary/OrderSummary";
+import OrderSummaryButton from "../../components/OrderSummary/OrderSummaryButton/OrderSummaryButton";
+import Spinner from "../../UI/Spinner/Spinner";
 
-class Menu extends Component {
+const Menu = props => {
+  const dispatch = useDispatch();
 
-    state = {
-        selectedItem: null,
-        showItemSelector: false,
-        showOrderSummaryModal: false
-    }
+  const loadingMenu = useSelector(state => state.menu.idle);
+  const order = useSelector(state => state.order.order);
+  const menu = useSelector(state => state.menu.menu);
 
-    componentDidMount () {
-        console.log('[Menu.js] Loading menu ...');
-        this.props.onFetchMenu();
-    }
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [showItemSelector, setShowItemSelector] = useState(false);
+  const [showOrderSummaryModal, setShowOrderSummaryModal] = useState(false);
 
-    findItemInMenu = (menu, itemName) => menu.reduce((acc, section) => acc.concat(section.items), []).find(x => x.name === itemName)
+  useEffect(() => {
+    dispatch(fetchMenu());
+  }, [dispatch]);
 
-    itemClickHandler = (itemName) => {
-        const itemOrdered = this.props.order[itemName];
-        const itemOrderToUpdate = itemOrdered ? 
-            {...itemOrdered} :
-            {
-                ...this.findItemInMenu(this.props.menu, itemName),
-                amount: 0
-            };
-    
-        this.setState({
-            selectedItem: itemOrderToUpdate,
-            showItemSelector: true
-        });
-    }
+  const findItemInMenu = (menu, itemName) =>
+    menu
+      .reduce((acc, section) => acc.concat(section.items), [])
+      .find((x) => x.name === itemName);
 
-    itemSelectorCloseHandler = () => {
-        this.setState({
-            selectedItem: null,
-            showItemSelector: false
-        });
-    }
+  const itemClickHandler = (itemName) => {
+    const itemOrdered = order[itemName];
+    const itemOrderToUpdate = itemOrdered
+      ? { ...itemOrdered }
+      : {
+          ...findItemInMenu(menu, itemName),
+          amount: 0,
+        };
 
-    toggleOrderSummaryHandler = () => {
-        this.setState(prevState => {
-            return ({
-                showOrderSummaryModal: !prevState.showOrderSummaryModal
-            });
-        });
-    }
+    setSelectedItem(itemOrderToUpdate);
+    setShowItemSelector(true);
+  };
 
-    orderUpdateHandler = (itemId, amount) => {    
-        const item = this.findItemInMenu(this.props.menu, itemId);
-        this.props.onUpdateOrder(item, amount);
-        this.itemSelectorCloseHandler();
-    }
+  const itemSelectorCloseHandler = () => {
+    setSelectedItem(null);
+    setShowItemSelector(false);
+  };
 
-    countItemsInOrder = (order) => {
-        return Object.keys(order).reduce((acc, itemName) => acc + order[itemName].amount, 0)
-    }
+  const toggleOrderSummaryHandler = () => {
+    setShowOrderSummaryModal((prevShow) => !prevShow);
+  };
 
-    render () {
+  const orderUpdateHandler = (itemId, amount) => {
+    const item = findItemInMenu(menu, itemId);
+    dispatch(updateOrder(item, amount));
+    itemSelectorCloseHandler();
+  };
 
-        const numberOfItemsOrdered = this.countItemsInOrder(this.props.order);
+  const countItemsInOrder = (order) => {
+    return Object.keys(order).reduce(
+      (acc, itemName) => acc + order[itemName].amount
+    , 0);
+  };
 
-        const shoppingCartButtom = numberOfItemsOrdered > 0 ?
-            (   
-                <div className={classes.OrderSummaryButton}>
-                    <OrderSummaryButton 
-                        text={numberOfItemsOrdered}
-                        toggleOrderSummary={this.toggleOrderSummaryHandler} />
-                </div>
-            ) : null;
+  const numberOfItemsOrdered = countItemsInOrder(order);
 
-        const modalItemSelector = this.state.showItemSelector ? 
-            <ModalWindow 
-                item={this.state.selectedItem} 
-                orderUpdate={this.orderUpdateHandler} 
-                closeClick={this.itemSelectorCloseHandler} /> : null;
+  const shoppingCartButtom =
+    numberOfItemsOrdered > 0 ? (
+      <div className={classes.OrderSummaryButton}>
+        <OrderSummaryButton
+          text={numberOfItemsOrdered}
+          toggleOrderSummary={toggleOrderSummaryHandler}
+        />
+      </div>
+    ) : null;
 
-        const componentContent = (
-            <div className={classes.Menu}>
-                <div className={classes.MenuItems}>
-                    <SectionList 
-                        sections={this.props.menu} 
-                        orderedItems={this.props.order}
-                        itemClicked={this.itemClickHandler} />
-                </div>
-                <div className={classes.OrderSummary}>
-                    <OrderSummary 
-                        order={this.props.order} 
-                        removeItem={this.orderUpdateHandler} />
-                </div>
-                <OrderSummaryModal
-                    toggleOrderSummary={this.toggleOrderSummaryHandler}
-                    display={this.state.showOrderSummaryModal}
-                    order={this.props.order}
-                    removeItem={this.orderUpdateHandler} />
-                {modalItemSelector}
-                {shoppingCartButtom}
-            </div>
-        );
+  const modalItemSelector = showItemSelector ? (
+    <ModalWindow
+      item={selectedItem}
+      orderUpdate={orderUpdateHandler}
+      closeClick={itemSelectorCloseHandler}
+    />
+  ) : null;
 
-        return this.props.loadingMenu ? <Spinner /> : componentContent;
-    }
-}
+  const componentContent = (
+    <div className={classes.Menu}>
+      <div className={classes.MenuItems}>
+        <SectionList
+          sections={menu}
+          orderedItems={order}
+          itemClicked={itemClickHandler}
+        />
+      </div>
+      <div className={classes.OrderSummary}>
+        <OrderSummary
+          order={order}
+          removeItem={orderUpdateHandler}
+        />
+      </div>
+      <OrderSummaryModal
+        toggleOrderSummary={toggleOrderSummaryHandler}
+        display={showOrderSummaryModal}
+        order={order}
+        removeItem={orderUpdateHandler}
+      />
+      {modalItemSelector}
+      {shoppingCartButtom}
+    </div>
+  );
 
-const mapStateToProps = state => {
-    return {
-        loadingMenu: state.menu.idle,
-        menu: state.menu.menu,
-        order: state.order.order
-    };
+  return loadingMenu ? <Spinner /> : componentContent;
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onFetchMenu: () => dispatch(actions.fetchMenu()),
-        onUpdateOrder: (item, amount) => dispatch(actions.updateOrder(item, amount))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default Menu;

@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 
 import OrderSummary from '../../components/OrderSummary/OrderSummary';
 
-import classes from './Order.module.css';
-
 class Order extends Component {
     render () {
         return (
