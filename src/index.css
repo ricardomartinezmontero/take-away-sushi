@@ -12,9 +12,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+main {
+  min-height: calc(100vh - 322px - 171.188px);
+}
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

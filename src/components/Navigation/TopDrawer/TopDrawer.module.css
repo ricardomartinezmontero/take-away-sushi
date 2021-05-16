@@ -8,6 +8,7 @@
     z-index: 200;
     background-color: #eaa929;
     box-sizing: border-box;
+    overflow: hidden;
     transition: transform 0.3s ease-out;
 }
 
