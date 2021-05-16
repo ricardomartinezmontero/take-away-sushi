@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Route } from 'react-router-dom';
 
 import classes from './Layout.module.css';
@@ -10,55 +10,46 @@ import TopDrawer from '../../components/Navigation/TopDrawer/TopDrawer';
 import DrawerToggle from '../../components/Navigation/TopDrawer/DrawerToggle/DrawerToggle';
 import Footer from '../../components/Footer/Footer';
 
-class Layout extends Component {
+const Layout = props => {
 
-    state = {
-        showSideDrawer: false
+    const [showSideDrawer, setShowSideDrawer] = useState(false);
+    const order = useSelector(state => state.order.order);
+    const loadingMenu = useSelector(state => state.menu.idle);
+
+    const drawerClosedHandler = () => {
+        setShowSideDrawer(false);
     }
 
-    drawerClosedHandler = () => {
-        this.setState({showSideDrawer: false});
+    const drawerToggleHandler = () => {
+        setShowSideDrawer(prev => !prev);
     }
 
-    drawerToggleHandler = () => {
-        this.setState((prevState) => ({showSideDrawer: !prevState.showSideDrawer}));
-    }
-
-    render () {
-        return (
-            <React.Fragment>
-                <DrawerToggle 
-                    open={this.state.showSideDrawer} 
-                    clicked={this.drawerToggleHandler} />
-                <Toolbar 
-                    drawerToggleClicked={this.drawerToggleHandler} />
-                <TopDrawer 
-                    open={this.state.showSideDrawer} 
-                    closed={this.drawerClosedHandler} />
-                <div className={classes.Brand}>
-                    <p>Take sushi away</p>
-                </div>
-                <main>
-                    {this.props.children}
-                </main>
-                <footer>
-                    <Footer />
-                </footer>
-                <Route 
-                    path={'/menu'} exact
-                    render={() => (
-                        <div className={(Object.keys(this.props.order).length > 0 && !this.props.loadingMenu) ? classes.ShowMarginBottomDisplay : classes.HideMarginBottomDisplay}></div>
-                    )} />
-            </React.Fragment>
-        );
-    }
+    return (
+        <React.Fragment>
+            <DrawerToggle 
+                open={showSideDrawer} 
+                clicked={drawerToggleHandler} />
+            <Toolbar 
+                drawerToggleClicked={drawerToggleHandler} />
+            <TopDrawer 
+                open={showSideDrawer} 
+                closed={drawerClosedHandler} />
+            <div className={classes.Brand}>
+                <p>Take sushi away</p>
+            </div>
+            <main>
+                {props.children}
+            </main>
+            <footer>
+                <Footer />
+            </footer>
+            <Route 
+                path={'/menu'} exact
+                render={() => (
+                    <div className={(Object.keys(order).length > 0 && !loadingMenu) ? classes.ShowMarginBottomDisplay : classes.HideMarginBottomDisplay}></div>
+                )} />
+        </React.Fragment>
+    );
 }
 
-const mapStateToProps = state => {
-    return {
-        order: state.order.order,
-        loadingMenu: state.menu.idle
-    };
-};
-
-export default connect(mapStateToProps)(Layout);
+export default Layout;

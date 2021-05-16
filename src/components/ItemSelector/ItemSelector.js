@@ -4,7 +4,6 @@ import classes from './ItemSelector.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
-import item from '../ItemList/Item/Item';
 
 class ItemSelector extends Component {
 

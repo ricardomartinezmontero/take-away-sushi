@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 
-import styles from './App.module.css';
-
 import Home from './containers/Home/Home';
 import Menu from './containers/Menu/Menu';
 import Order from './containers/Order/Order';

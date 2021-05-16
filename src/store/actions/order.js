@@ -1,10 +1,8 @@
-import * as actionTypes from './actionTypes';
+import { updateOrder as update } from '../order';
 
 export const updateOrder = (item, amount) => {
-    return {
-        type: actionTypes.UPDATE_ORDER,
-        item: item,
-        amount: amount
+    return dispatch => {
+        dispatch(update({item, amount}))
     }
 }
 
