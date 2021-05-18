@@ -9,7 +9,6 @@ const order = createSlice({
   initialState: initialState,
   reducers: {
     updateOrder: (state, action) => {
-      console.log(action.payload);
       const item = {
         ...action.payload.item,
         amount: action.payload.amount,
