@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import { useSelector } from 'react-redux';
-import { Route } from 'react-router-dom';
 
 import classes from './Layout.module.css';
 
@@ -43,11 +42,7 @@ const Layout = props => {
             <footer>
                 <Footer />
             </footer>
-            <Route 
-                path={'/menu'} exact
-                render={() => (
-                    <div className={(Object.keys(order).length > 0 && !loadingMenu) ? classes.ShowMarginBottomDisplay : classes.HideMarginBottomDisplay}></div>
-                )} />
+            
         </React.Fragment>
     );
 }
