@@ -1,13 +1,10 @@
 import { fetchMenuStart, setMenu } from "../menu";
 
-import { menu } from "../../shared/utils";
-
 export const fetchMenu = () => {
-  console.log("[Actions menu.js] Loading menu ...");
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(fetchMenuStart());
-    setTimeout(() => {
-        dispatch(setMenu(menu));
-    }, 3000);
+    const respose = await fetch ('api/menu');
+    const menu = await respose.json();
+    dispatch(setMenu(menu));
   };
 };

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import classes from "./Menu.module.css";
@@ -25,8 +25,10 @@ const Menu = props => {
   const [showOrderSummaryModal, setShowOrderSummaryModal] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchMenu());
-  }, [dispatch]);
+    if (menu && menu.length === 0) {
+      dispatch(fetchMenu());
+    }
+  }, [menu, dispatch]);
 
   const findItemInMenu = (menu, itemName) =>
     menu
