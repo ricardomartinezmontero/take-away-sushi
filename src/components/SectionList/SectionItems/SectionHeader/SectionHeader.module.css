@@ -1,0 +1,34 @@
+.SectionHeader {
+    display: inline-block;
+    width: 100%;
+    height: 4rem;
+    font-family: "Krona One";
+    padding: 0 1rem;
+    font-size: 1rem;
+    overflow: auto;
+    cursor: pointer;
+}
+
+.SectionHeader h2 {
+    display: inline-block;
+    height: 4rem;
+    margin: 0;
+    line-height: 4rem;
+}
+
+.SectionHeader svg {
+    font-size: 2rem;
+    height: 4rem;
+    float: right;
+}
+
+@media(min-width: 1024px) {
+
+    .SectionHeader {
+        padding: 0;
+    }
+
+    .SectionHeader svg {
+        display: none;
+    }
+}

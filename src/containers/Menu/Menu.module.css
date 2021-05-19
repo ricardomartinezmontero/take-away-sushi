@@ -1,0 +1,68 @@
+.Menu {
+    margin: 0;
+    padding: 0;
+}
+
+.MenuItems {
+    width: 100%;
+}
+
+.OrderSummary {
+    display: none;
+}
+
+.OrderSummaryButton {
+    display: inline-block;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+@media(min-width: 600px) {
+    .Menu {
+        margin: 0 1rem;
+    }
+}
+
+@media(min-width: 768px) {
+    .Menu {
+        margin: 0 1rem;
+    }
+    
+    .MenuItems {
+        display: inline-block;
+        vertical-align: top;
+        width: 60%;
+    }
+
+    .OrderSummary {
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 1rem;
+        padding-left: 1rem;
+        width: 40%;
+        position: sticky;
+        top: 2rem;
+    }
+
+    .OrderSummaryButton {
+        display: none;
+    }
+    
+}
+
+@media(min-width: 1024px) {
+    .Menu {
+        margin: 1rem 1rem;
+    }
+    
+    .MenuItems {
+        width: 70%;
+    }
+
+    .OrderSummary {
+        width: 30%;
+    }
+    
+}

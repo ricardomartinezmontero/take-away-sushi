@@ -1,0 +1,15 @@
+.SectionItems {
+    overflow: auto;
+    border-bottom-style: solid;
+    border-bottom-width: .1rem;
+    border-bottom-color: gray;
+}
+
+@media(min-width: 1024px) {
+    .SectionItems {
+        border-bottom-style: unset;
+        border-bottom-width: unset;
+        border-bottom-color: unset;
+        overflow: unset;
+    }
+}

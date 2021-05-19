@@ -1,0 +1,118 @@
+.Footer {
+    border-top-style: solid;
+    border-top-color: black;
+    border-top-width: 1rem;
+    width: 100%;
+    font-family: "Krona One";
+    background-color: rgb(234, 169, 41);
+    overflow: auto;
+}
+
+.Logo {
+    padding: 0;
+    margin: .5rem 0;
+    height: 6rem;
+}
+
+.WebMap {
+    display: flex;
+}
+
+.WebMap ul {
+    flex: 1;
+}
+
+.WebMap ul li {
+    padding: 0.5rem 0;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.MediaContainer {
+    display: block;
+    margin: 0;
+    padding: .5rem 0;
+    background-color: black;
+}
+
+.MediaTitle {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 16rem;
+    margin: 0 auto;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.Media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16rem;
+    margin: 0 auto;
+    color: white;
+}
+
+.Brand {
+    padding: 0 1rem;
+    font-size: 2.5rem;
+}
+
+@media(min-width: 600px) {
+    .Footer {
+        display: block;
+        overflow: hidden;
+        padding: 1rem 0;
+    }
+
+    .Logo {
+        display: none;
+    }
+
+    .WebMap {
+        float: left;
+        width: 26rem;
+    }
+
+    .WebMap ul li {
+        color: white;
+        font-size: 0.9rem;
+    }
+
+    .MediaContainer {
+        float: right;
+        margin: 0;
+        padding-right: 2rem;
+        background-color: unset;
+    }
+
+    .MediaTitle {
+        float: left;
+        display: unset;
+        box-sizing: border-box;
+        justify-content: unset;
+        text-align: right;
+        align-items: unset;
+        width: 7rem;
+        font-size: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 2.5rem;
+    }
+
+    .Media {
+        float: left;
+        display: block;
+        justify-content: unset;
+        align-items: unset;
+        width: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .Media div {
+        padding: 0;
+    }
+
+}

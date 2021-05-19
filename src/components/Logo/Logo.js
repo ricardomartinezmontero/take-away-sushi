@@ -1,12 +1,8 @@
-import React from 'react';
-
-import burgerLogo from '../../assets/images/logo.svg';
+import logoImage from '../../../public/images/logo.svg';
 import classes from './Logo.module.css';
 
-const logo = (props) => (
-    <div className={classes.Logo}>
-        <img src={burgerLogo} alt="TakeAway"/>
-    </div>
-);
+const logo = (props) => {
+    return (<img className={classes.Img} src={logoImage} alt="TakeAway"/>);
+};
 
 export default logo;

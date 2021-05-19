@@ -9,11 +9,23 @@
 }
 
 .Toolbar nav {
+    margin: 0;
     height: 100%;
+}
+
+.Logo {
+    padding: 8px;
+    height: 8rem;
+    box-sizing: border-box;
+    border-radius: 5px;
 }
 
 @media(max-width: 600px) {
     .DesktopOnly {
         display: none;
+    }
+
+    .Logo {
+        height: 7.2rem;
     }
 }

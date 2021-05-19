@@ -1,0 +1,29 @@
+.ItemList {
+    overflow: hidden;
+}
+
+.Collapsed {
+    height: 0;
+}
+
+.Open {
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+@media(min-width: 1024px) {
+    .ItemList {
+        height: auto;
+        transition: none;
+        overflow: unset;
+    }
+
+    .Open {
+        height: auto;
+        margin-bottom: 1rem;
+    }
+
+    .Collapsed {
+        height: auto;
+    }
+}
