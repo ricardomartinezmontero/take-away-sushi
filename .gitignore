@@ -24,4 +24,6 @@ yarn-error.log*
 
 #Nextjs
 .next
-.env.local
+env/
+
+credentials
