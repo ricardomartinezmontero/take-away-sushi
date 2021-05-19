@@ -1,0 +1,10 @@
+.git/
+.gitignore
+.next/
+.dockerignore
+Dockerfile
+heroku.Dockerfile
+docker-compose.yml
+node_modules/
+.DS_Store
+env/

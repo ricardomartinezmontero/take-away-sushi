@@ -2,13 +2,20 @@ import admin from "firebase-admin";
 
 if (!admin.apps.length) {
     try {
+        const FCM_TOKEN = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
+
+        const serviceAccount = {
+            projectId: FCM_TOKEN.project_id,
+            clientEmail: FCM_TOKEN.client_email,
+            privateKey: FCM_TOKEN.private_key,
+        };
         admin.initializeApp({
-            credential: admin.credential.cert(process.env.GOOGLE_APPLICATION_CREDENTIALS),
+            credential: admin.credential.cert(serviceAccount),
             databaseURL: process.env.DATABASE_URL,
         });
-      } catch (error) {
-        console.log('Firebase admin initialization error', error.stack);
-      }
+    } catch (error) {
+        console.log("Firebase admin initialization error", error.stack);
+    }
 }
 
 export default admin.database();
