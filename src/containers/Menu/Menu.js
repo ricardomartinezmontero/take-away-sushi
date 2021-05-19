@@ -118,25 +118,4 @@ const Menu = props => {
   return loadingMenu ? <Spinner /> : componentContent;
 };
 
-export async function getStaticProps({ params }) {
-
-  const reduxStore = initializeStore();
-  const { dispatch } = reduxStore;
-
-  const ref = db.ref("menu");
-  const snapshot = await ref.get();
-  const menu = snapshot.val();
-  
-  console.log(menu);
-
-  dispatch(setMenu(menu));
-  
-  return {
-    // Set the timeout for generating to 1 second
-    // This timeout could be longer depending on how often data changes
-    revalidate: 0,
-    props: {initialReduxState: reduxStore.getState()}
-  };
-};
-
 export default Menu;

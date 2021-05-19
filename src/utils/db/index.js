@@ -1,8 +1,10 @@
 import admin from "firebase-admin";
 
-if (!admin.apps.length) {
+if (process.env.GOOGLE_APPLICATION_CREDENTIALS && !admin.apps.length) {
     try {
-        const FCM_TOKEN = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
+        const FCM_TOKEN = JSON.parse(
+            process.env.GOOGLE_APPLICATION_CREDENTIALS
+        );
 
         const serviceAccount = {
             projectId: FCM_TOKEN.project_id,
@@ -18,4 +20,4 @@ if (!admin.apps.length) {
     }
 }
 
-export default admin.database();
+export default admin.apps.length ? admin.database() : undefined;
