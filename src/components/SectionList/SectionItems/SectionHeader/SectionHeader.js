@@ -13,8 +13,8 @@ const sectionHeader = (props) => {
             <h2>{props.headerText}</h2>
             {
                 !props.collapsed ? 
-                    <FontAwesomeIcon icon={faAngleUp} /> :
-                    <FontAwesomeIcon icon={faAngleDown} />
+                    <FontAwesomeIcon icon={faAngleUp} className={classes.Arrow} /> :
+                    <FontAwesomeIcon icon={faAngleDown} className={classes.Arrow} />
             }
         </div>
     );
