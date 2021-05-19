@@ -12,10 +12,12 @@ RUN npm install --global pm2
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install --production
+RUN npm install --production --ignore-scripts --prefer-offline
 
 # Copy all files
 COPY . .
+
+
 
 # Build app
 RUN npm run build
