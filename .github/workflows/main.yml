@@ -3,11 +3,9 @@ name: Deploy to heroku.
 
 # Run workflow on every push to master branch.
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ main ]
+    types: [closed]
+    branches: [master]
   workflow_dispatch:
 # Your workflows jobs.
 jobs:
@@ -24,5 +22,5 @@ jobs:
           email: ${{ secrets.HEROKU_EMAIL }} # your heroku email
           api_key: ${{ secrets.HEROKU_API_KEY }} # your  heroku api key
           app_name: ${{ secrets.HEROKU_APP_NAME }} # you aplication name
-          dockerfile_path: '' # set the path to the folder wher the Dokerfile is located
+          dockerfile_path: './' # set the path to the folder wher the Dokerfile is located
           options: '' # Docker Build Options
