@@ -6,8 +6,8 @@ services:
         ports:
             - 3000:3000
         build:
-            context: ./docker/dev
-            dockerfile: Dockerfile
+            context: .
+            dockerfile: dev.Dockerfile
         volumes:
             - ./:/usr/src/app
             - node_modules
