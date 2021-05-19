@@ -40,18 +40,10 @@ const footer = (props) => {
             <div className={classes.MediaContainer}>
                 <div className={classes.MediaTitle}>Siguenos</div>
                 <div className={classes.Media}>
-                    <div className={classes.Brand}>
-                        <FontAwesomeIcon icon={['fab', 'facebook-square']} />
-                    </div>
-                    <div className={classes.Brand}>
-                        <FontAwesomeIcon icon={['fab', 'whatsapp-square']} />
-                    </div>
-                    <div className={classes.Brand}>
-                        <FontAwesomeIcon icon={['fab', 'instagram-square']} />
-                    </div>
-                    <div className={classes.Brand}>
-                        <FontAwesomeIcon icon={['fab', 'linkedin']} />
-                    </div>
+                    <FontAwesomeIcon icon={['fab', 'facebook-square']} className={classes.Brand} />
+                    <FontAwesomeIcon icon={['fab', 'whatsapp-square']} className={classes.Brand} />
+                    <FontAwesomeIcon icon={['fab', 'instagram-square']} className={classes.Brand} />
+                    <FontAwesomeIcon icon={['fab', 'linkedin']} className={classes.Brand} />
                 </div>
             </div>
         </div>
