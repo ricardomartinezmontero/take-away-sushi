@@ -1,19 +1,23 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import classes from './Footer.module.css';
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import { countItemsInOrder } from '../../utils/shared';
+
+import { faFacebookSquare, faWhatsappSquare, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Logo from '../Logo/Logo';
 
 const footer = (props) => {
-    
-    library.add(fab);
+
+    const order = useSelector(state => state.order.order);
+
+    const footerStyles = `${classes.Footer} ${countItemsInOrder(order) > 0 && classes.FooterBottomGap}`;
 
     return (
-        <div className={classes.Footer}>
+        <footer className={footerStyles}>
             <div className={classes.Logo}>
                 <Logo />
             </div>
@@ -40,13 +44,13 @@ const footer = (props) => {
             <div className={classes.MediaContainer}>
                 <div className={classes.MediaTitle}>Siguenos</div>
                 <div className={classes.Media}>
-                    <FontAwesomeIcon icon={['fab', 'facebook-square']} className={classes.Brand} />
-                    <FontAwesomeIcon icon={['fab', 'whatsapp-square']} className={classes.Brand} />
-                    <FontAwesomeIcon icon={['fab', 'instagram-square']} className={classes.Brand} />
-                    <FontAwesomeIcon icon={['fab', 'linkedin']} className={classes.Brand} />
+                    <FontAwesomeIcon icon={faFacebookSquare} className={classes.Brand} />
+                    <FontAwesomeIcon icon={faWhatsappSquare} className={classes.Brand} />
+                    <FontAwesomeIcon icon={faInstagramSquare} className={classes.Brand} />
+                    <FontAwesomeIcon icon={faLinkedin} className={classes.Brand} />
                 </div>
             </div>
-        </div>
+        </footer>
     );
 };
 

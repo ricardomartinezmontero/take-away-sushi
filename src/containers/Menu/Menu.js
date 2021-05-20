@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import ReactDom from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import classes from "./Menu.module.css";
+
+import { countItemsInOrder } from '../../utils/shared';
 
 import { fetchMenu } from '../../store/actions/menu';
 import { updateOrder } from '../../store/actions/order';
@@ -12,6 +15,10 @@ import OrderSummaryModal from "../../components/OrderSummary/OrderSummaryModal/O
 import OrderSummary from "../../components/OrderSummary/OrderSummary";
 import OrderSummaryButton from "../../components/OrderSummary/OrderSummaryButton/OrderSummaryButton";
 import Spinner from "../../UI/Spinner/Spinner";
+
+const isExecutingInBrowser = typeof window !== "undefined";
+
+const overlay = isExecutingInBrowser && document.getElementById("overlay");
 
 const Menu = props => {
   const dispatch = useDispatch();
@@ -63,12 +70,6 @@ const Menu = props => {
     itemSelectorCloseHandler();
   };
 
-  const countItemsInOrder = (order) => {
-    return Object.keys(order).reduce(
-      (acc, itemName) => acc + order[itemName].amount
-    , 0);
-  };
-
   const numberOfItemsOrdered = countItemsInOrder(order);
 
   const shoppingCartButtom =
@@ -110,7 +111,7 @@ const Menu = props => {
         order={order}
         removeItem={orderUpdateHandler}
       />
-      {modalItemSelector}
+      {overlay && ReactDom.createPortal(modalItemSelector, overlay)}
       {shoppingCartButtom}
     </div>
   );

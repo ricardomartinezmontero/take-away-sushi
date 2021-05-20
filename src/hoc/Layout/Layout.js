@@ -5,8 +5,7 @@ import { useSelector } from 'react-redux';
 import classes from './Layout.module.css';
 
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
-import TopDrawer from '../../components/Navigation/TopDrawer/TopDrawer';
-import DrawerToggle from '../../components/Navigation/TopDrawer/DrawerToggle/DrawerToggle';
+import TopDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import Footer from '../../components/Footer/Footer';
 
 const Layout = props => {
@@ -24,11 +23,9 @@ const Layout = props => {
     }
 
     return (
-        <React.Fragment>
-            <DrawerToggle 
-                open={showSideDrawer} 
-                clicked={drawerToggleHandler} />
+        <div id="content">
             <Toolbar 
+                showSideDrawer={showSideDrawer}
                 drawerToggleClicked={drawerToggleHandler} />
             <TopDrawer 
                 open={showSideDrawer} 
@@ -39,11 +36,8 @@ const Layout = props => {
             <main>
                 {props.children}
             </main>
-            <footer>
-                <Footer />
-            </footer>
-            
-        </React.Fragment>
+            <Footer />
+        </div>
     );
 }
 
