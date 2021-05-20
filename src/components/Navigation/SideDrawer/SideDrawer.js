@@ -1,10 +1,10 @@
 import React from 'react';
 
-import classes from './TopDrawer.module.css';
+import classes from './SideDrawer.module.css';
 
 import NavigationItems from '../NavigationItems/NavigationItems';
 
-const topDrawer = (props) => {
+const SideDrawer = (props) => {
     
     let attachedClasses = [classes.TopDrawer, classes.Close];
     if (props.open){
@@ -21,4 +21,4 @@ const topDrawer = (props) => {
     );
 };
 
-export default topDrawer;
+export default SideDrawer;

@@ -11,6 +11,7 @@ import Layout from '../hoc/Layout/Layout';
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={useStore(pageProps.initialReduxState)}>
+      <div id="overlay"></div>
       <Layout>
         <Component {...pageProps} />
       </Layout>

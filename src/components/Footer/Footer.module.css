@@ -8,6 +8,10 @@
     overflow: auto;
 }
 
+.FooterBottomGap {
+    margin-bottom: 4rem;
+}
+
 .Logo {
     padding: 0;
     margin: .5rem 0;
@@ -117,4 +121,10 @@
         padding: 0;
     }
 
+}
+
+@media(min-width: 768px) {
+    .FooterBottomGap {
+        margin-bottom: 0;
+    }
 }

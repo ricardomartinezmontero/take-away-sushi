@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import classes from "./Menu.module.css";
 
+import { countItemsInOrder } from '../../utils/shared';
+
 import { fetchMenu } from '../../store/actions/menu';
 import { updateOrder } from '../../store/actions/order';
 
@@ -61,12 +63,6 @@ const Menu = props => {
     const item = findItemInMenu(menu, itemId);
     dispatch(updateOrder(item, amount));
     itemSelectorCloseHandler();
-  };
-
-  const countItemsInOrder = (order) => {
-    return Object.keys(order).reduce(
-      (acc, itemName) => acc + order[itemName].amount
-    , 0);
   };
 
   const numberOfItemsOrdered = countItemsInOrder(order);
