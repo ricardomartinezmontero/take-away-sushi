@@ -39,11 +39,11 @@
     .OrderSummary {
         display: inline-block;
         vertical-align: top;
-        padding-top: 1rem;
         padding-left: 1rem;
         width: 40%;
         position: sticky;
-        top: 2rem;
+        top: 1rem;
+        max-height: calc( 100vh - 128px - 44px - 40px - 2rem);
     }
 
     .OrderSummaryButton {

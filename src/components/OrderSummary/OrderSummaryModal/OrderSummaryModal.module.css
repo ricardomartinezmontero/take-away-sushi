@@ -12,6 +12,7 @@
 .CloseButton {
     cursor: pointer;
     position: fixed;
+    z-index: 300;
     top: .5rem;
     right: .5rem;
     width: 2rem;
@@ -33,6 +34,23 @@
 
 .Close {
     transform: translateY(0);
+}
+
+.OrderSummaryContainer {
+    position: relative;
+}
+
+.OrderSummaryContainer ul[class*="OrderList"] {
+    max-height: calc(100vh - 8rem);
+    overflow: auto;
+    padding: 0;
+}
+
+.OrderSummaryContainer div[class*="PayContiner"] {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 @media(min-width: 768px) {

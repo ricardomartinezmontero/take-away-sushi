@@ -12,9 +12,9 @@ const orderSummary = (props) => {
     const orderList = Object.keys(props.order).map(key => {
         const item = props.order[key];
         return (
-            <div 
+            <li 
                 key={key} 
-                className={classes.OrderList}>
+                className={classes.OrderItem}>
                 <div className={classes.Item}>
                     <Badge text={item.amount} borderShape="square" /> {item.name}
                 </div>
@@ -24,7 +24,7 @@ const orderSummary = (props) => {
                         onClick={() => props.removeItem(item.name, item.amount - 1)} />
                     <span>{(item.amount * item.price).toFixed(2)}€</span>
                 </div>
-            </div>
+            </li>
         );
     });
 
@@ -35,9 +35,11 @@ const orderSummary = (props) => {
     const isEmptyOrder = Object.keys(props.order).length === 0;
 
     return (
-        <div className={classes.OrderSummary}>
+        <div className={`${classes.OrderSummary} ${props.className}`}>
             <h2 className={classes.Title}>Mi Pedido</h2>
-            {orderList}
+            <ul className={classes.OrderList}>
+                {orderList}
+            </ul>
             <div className={classes.Total}>
                 <div className={classes.TotalTittle}>Total</div>
                 <div className={classes.TotalPrice}>
