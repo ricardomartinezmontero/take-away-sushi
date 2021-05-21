@@ -19,6 +19,7 @@ const orderSummaryModal = (props) => {
                 <FontAwesomeIcon icon={faAngleDown} />
             </span>
             <OrderSummary 
+                className={classes.OrderSummaryContainer}
                 order={props.order} 
                 removeItem={props.removeItem} />
         </div>

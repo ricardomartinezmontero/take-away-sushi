@@ -1,9 +1,14 @@
 .OrderSummary {
     background-color: white;
+    position: relative;
+    max-height: inherit;
 }
 
 .Title {
     color: white;
+    position: absolute;
+    top:0;
+    width: 100%;
     background-color: black;
     text-transform: uppercase;
     line-height: 3rem;
@@ -12,12 +17,21 @@
 }
 
 .OrderList {
+    list-style-type: none;
+    padding: 3rem 0 8rem 0;
+    margin: 0;
+    overflow: auto;
+    max-height: inherit;
+}
+
+.OrderItem {
     display: flex;
     align-items: center;
     justify-content: center;
     color: black;
     padding: .5rem .5rem;
     width: 100%;
+
 }
 
 .Item {
@@ -51,12 +65,15 @@
 
 .Total {
     display: flex;
+    position: absolute;
+    bottom: 4rem;
     align-items: center;
     justify-content: center;
     color: black;
     padding: .5rem .5rem;
-    height: 5rem;
+    height: 4rem;
     width: 100%;
+    background-color: white;
 }
 
 .TotalTittle {
@@ -79,6 +96,12 @@
 
 .PayContiner {
     padding: .8rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: white;
+    border-top: 2px solid rgba(0, 0, 0, .3);
 }
 
 .Pay {
