@@ -35,7 +35,7 @@ const orderSummary = (props) => {
     const isEmptyOrder = Object.keys(props.order).length === 0;
 
     return (
-        <div className={`${classes.OrderSummary} ${props.className}`}>
+        <div className={`${classes.OrderSummary} ${props.className ? props.className : ''}`}>
             <h2 className={classes.Title}>Mi Pedido</h2>
             <ul className={classes.OrderList}>
                 {orderList}
