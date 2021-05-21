@@ -43,7 +43,6 @@
 .OrderSummaryContainer ul[class*="OrderList"] {
     max-height: calc(100vh - 8rem);
     overflow: auto;
-    padding: 0;
 }
 
 .OrderSummaryContainer div[class*="PayContiner"] {
