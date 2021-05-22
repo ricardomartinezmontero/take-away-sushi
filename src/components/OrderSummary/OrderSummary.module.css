@@ -1,13 +1,15 @@
 .OrderSummary {
+    display: flex;
+    flex-flow: column wrap;
     background-color: white;
-    position: relative;
-    max-height: inherit;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1rem;
+    
 }
 
 .Title {
     color: white;
-    position: absolute;
-    top:0;
     width: 100%;
     background-color: black;
     text-transform: uppercase;
@@ -17,8 +19,9 @@
 }
 
 .OrderList {
+    flex: 1;
     list-style-type: none;
-    padding: 3rem 0 8rem 0;
+    padding: 0;
     margin: 0;
     overflow: auto;
     max-height: inherit;
@@ -31,7 +34,6 @@
     color: black;
     padding: .5rem .5rem;
     width: 100%;
-
 }
 
 .Item {
@@ -65,13 +67,10 @@
 
 .Total {
     display: flex;
-    position: absolute;
-    bottom: 4rem;
-    align-items: center;
     justify-content: center;
     color: black;
     padding: .5rem .5rem;
-    height: 4rem;
+    height: 2rem;
     width: 100%;
     background-color: white;
 }
@@ -96,10 +95,6 @@
 
 .PayContiner {
     padding: .8rem;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
     background-color: white;
     border-top: 2px solid rgba(0, 0, 0, .3);
 }
