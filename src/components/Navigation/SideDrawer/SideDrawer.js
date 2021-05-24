@@ -14,7 +14,7 @@ const SideDrawer = (props) => {
     return (
         <div className={attachedClasses.join(' ')} onClick={props.closed}>
             <nav>
-                <NavigationItems />
+                <NavigationItems onLogout={props.onLogout}/>
             </nav>
             <div className={classes.Footer}></div>
         </div>

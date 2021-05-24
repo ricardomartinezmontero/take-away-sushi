@@ -1,0 +1,41 @@
+.LogoutButton {
+    margin: 0.5rem 1rem 0 3rem;
+    display: block;
+}
+
+.LogoutButton button {
+    margin: 0;
+    width: 100%;
+    font-size: 1.5em;
+    text-align: left;
+    border: none;
+    background: none;
+    color: gray;
+    padding: 0.5rem 1rem;
+    font-family: "Krona One";
+    text-decoration: none;
+    border-bottom-color: white;
+    border-bottom-width: 0.05rem;
+    border-bottom-style: solid;
+}
+
+.LogoutButton button:hover {
+    cursor: pointer;
+    color: #504f4f;
+}
+
+@media(min-width: 600px) {
+    .LogoutButton {
+        margin: 0 auto;
+        height: 100%;
+        width: auto;
+        align-items: center;
+    }
+    
+    .LogoutButton button {
+        font-size: 1.2rem;
+        padding: 0.6rem 0;
+        border-bottom: 4px solid transparent;   
+    }
+
+}

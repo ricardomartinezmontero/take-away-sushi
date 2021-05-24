@@ -5,7 +5,6 @@ import classes from './Footer.module.css';
 
 import { countItemsInOrder } from '../../utils/shared';
 
-import { faFacebookSquare, faWhatsappSquare, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Logo from '../Logo/Logo';
@@ -44,10 +43,10 @@ const footer = (props) => {
             <div className={classes.MediaContainer}>
                 <div className={classes.MediaTitle}>Siguenos</div>
                 <div className={classes.Media}>
-                    <FontAwesomeIcon icon={faFacebookSquare} className={classes.Brand} />
-                    <FontAwesomeIcon icon={faWhatsappSquare} className={classes.Brand} />
-                    <FontAwesomeIcon icon={faInstagramSquare} className={classes.Brand} />
-                    <FontAwesomeIcon icon={faLinkedin} className={classes.Brand} />
+                    <FontAwesomeIcon icon={['fab','facebook-square']} className={classes.Brand} />
+                    <FontAwesomeIcon icon={['fab','whatsapp-square']} className={classes.Brand} />
+                    <FontAwesomeIcon icon={['fab','instagram-square']} className={classes.Brand} />
+                    <FontAwesomeIcon icon={['fab','linkedin']} className={classes.Brand} />
                 </div>
             </div>
         </footer>

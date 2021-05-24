@@ -11,11 +11,11 @@ const toolbar = (props) => (
             <Logo />
         </div>
         <nav className={classes.DesktopOnly}>
-            <NavigationItems />
+            <NavigationItems onLogout={props.onLogout} />
         </nav>
         <DrawerToggle 
-                open={props.showSideDrawer} 
-                clicked={props.drawerToggleClicked} />
+            open={props.showSideDrawer} 
+            clicked={props.drawerToggleClicked} />
     </header>
 );
 

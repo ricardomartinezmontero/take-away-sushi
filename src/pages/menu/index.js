@@ -1,27 +1,23 @@
 import Menu from "../../containers/Menu/Menu";
-import { setMenu } from "../../store/menu";
-import { initializeStore } from "../../store";
 import db from "../../utils/db";
 
+const Home = (pageProps) => {
+    return <Menu {...pageProps} />;
+};
+
 export async function getServerSideProps() {
-    const reduxStore = initializeStore();
+    let menu;
     try {
-      const { dispatch } = reduxStore;
       const ref = db.ref("menu");
       const snapshot = await ref.get();
-      const menu = JSON.parse(JSON.stringify(snapshot.val()));
-      dispatch(setMenu(menu));
+      menu = JSON.parse(JSON.stringify(snapshot.val()));
     } catch (error) {
         console.log(error);
     }
 
     return {
-        props: { initialReduxState: reduxStore.getState() },
+        props: { menu: menu },
     };
 }
-
-const Home = () => {
-    return <Menu />;
-};
 
 export default Home;

@@ -1,0 +1,42 @@
+.Login {
+    flex:1;
+    display: flex;
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.LoginSection {
+    flex:1;
+    max-width: 25rem;
+    display: flex;
+    flex-flow: column wrap;
+    background: white;
+    border-radius: 5px;
+    padding: .5rem;
+}
+
+.LoginSeparation {
+    flex:1;
+    display: flex;
+    column-gap: .5rem;
+    align-items: center;
+}
+
+.LoginSeparation div {
+    flex:1;
+    height: 1px;
+    border: 1px solid #4d4d4d;
+}
+
+.LoginSeparation span {
+    color: #4d4d4d;
+    font-weight: bold;
+}
+
+.Login header {
+    color:#4d4d4d;
+    font-size: 2rem;
+    font-weight: bold;
+}
