@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import classes from './ItemSelector.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 class ItemSelector extends Component {
 
@@ -50,7 +49,7 @@ class ItemSelector extends Component {
                         <div disabled
                             className={minusButtonStyles.join(' ')}
                             onClick={(event) => this.alterItemAmount(-1)}>
-                            <span><FontAwesomeIcon icon={faMinus} /></span>
+                            <span><FontAwesomeIcon icon={['fa','minus']} /></span>
                         </div>
                         <div className={classes.AmountCounter}>
                             {this.state.item.amount}
@@ -58,7 +57,7 @@ class ItemSelector extends Component {
                         <div
                             className={classes.AmountButton} 
                             onClick={(event) => this.alterItemAmount(1)}>
-                            <span><FontAwesomeIcon icon={faPlus} /></span>
+                            <span><FontAwesomeIcon icon={['fa','plus']} /></span>
                         </div>
                     </div>
                 </div>

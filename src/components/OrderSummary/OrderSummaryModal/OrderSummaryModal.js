@@ -3,7 +3,6 @@ import React from 'react';
 import classes from './OrderSummaryModal.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 import OrderSummary from '../OrderSummary';
 
@@ -16,7 +15,7 @@ const orderSummaryModal = (props) => {
             <span 
                 className={classes.CloseButton}
                 onClick={props.toggleOrderSummary} >
-                <FontAwesomeIcon icon={faAngleDown} />
+                <FontAwesomeIcon icon={['fa','angle-down']} />
             </span>
             <OrderSummary 
                 className={classes.OrderSummaryContainer}

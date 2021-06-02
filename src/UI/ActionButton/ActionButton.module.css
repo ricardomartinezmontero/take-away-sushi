@@ -1,0 +1,19 @@
+.ActionButton {
+    padding: 1rem;
+    background-color: black;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    border: unset;
+    cursor: pointer;
+}
+
+.ActionButton:hover,
+.ActionButton:active {
+    background-color: rgb(48, 48, 48);
+}
+
+.ActionButton:disabled {
+    background-color: rgb(131, 131, 131);
+    cursor: not-allowed;
+}

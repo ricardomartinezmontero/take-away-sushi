@@ -8,14 +8,17 @@
 
 .Open {
     height: auto;
-    margin-bottom: 1rem;
 }
 
 @media(min-width: 1024px) {
     .ItemList {
-        height: auto;
-        transition: none;
-        overflow: unset;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        column-gap: .8rem;
+        row-gap: .8rem;
+        padding: .8rem .8rem;
     }
 
     .Open {

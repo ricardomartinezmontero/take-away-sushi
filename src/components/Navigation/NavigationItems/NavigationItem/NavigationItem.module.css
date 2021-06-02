@@ -18,17 +18,15 @@
 }
 
 .NavigationItem a:hover {
-    color: rgb(80, 79, 79);
+    color: #504f4f;
 }
 
-.NavigationItem a:active,
-.NavigationItem a.active {
+.NavigationItemAnchorActive a {
     color: black;
 }
 
 @media(min-width: 600px) {
     .NavigationItem {
-        font-size: unset;
         margin: 0 auto;
         display: block;
         height: 100%;
@@ -37,19 +35,9 @@
     }
     
     .NavigationItem a {
-        color: gray;
-        height: 100%;
-        width: auto;
+        font-size: 1.2rem;
         padding: 0.6rem 0;
         border-bottom: 4px solid transparent;   
     }
-    
-    .NavigationItem a:hover {
-        color: rgb(80, 79, 79);
-    }
 
-    .NavigationItem a:active,
-    .NavigationItem a.active {
-        color: black;
-    }
 }
