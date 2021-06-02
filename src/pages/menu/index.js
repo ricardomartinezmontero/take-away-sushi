@@ -1,4 +1,4 @@
-import Menu from "../../containers/Menu/Menu";
+import Menu from "../../components/Menu/Menu";
 import db from "../../utils/db";
 
 const Home = (pageProps) => {

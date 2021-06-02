@@ -9,11 +9,11 @@ import { countItemsInOrder, preventBodyScroll } from "../../utils/shared";
 import { setMenu } from "../../store/menu";
 import { updateOrder } from "../../store/actions/order";
 
-import SectionList from "../../components/SectionList/SectionList";
-import ModalWindow from "../../components/ItemSelector/ModalWindow/ModalWindow";
-import OrderSummaryModal from "../../components/OrderSummary/OrderSummaryModal/OrderSummaryModal";
-import OrderSummary from "../../components/OrderSummary/OrderSummary";
-import OrderSummaryButton from "../../components/OrderSummary/OrderSummaryButton/OrderSummaryButton";
+import SectionList from "../SectionList/SectionList";
+import ModalWindow from "../ItemSelector/ModalWindow/ModalWindow";
+import OrderSummaryModal from "../OrderSummary/OrderSummaryModal/OrderSummaryModal";
+import OrderSummary from "../OrderSummary/OrderSummary";
+import OrderSummaryButton from "../OrderSummary/OrderSummaryButton/OrderSummaryButton";
 import Spinner from "../../UI/Spinner/Spinner";
 
 const isExecutingInBrowser = typeof window !== "undefined";

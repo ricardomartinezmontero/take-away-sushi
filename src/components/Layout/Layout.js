@@ -13,9 +13,9 @@ import classes from './Layout.module.css';
 
 import { preventBodyScroll } from '../../utils/shared';
 
-import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
-import TopDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
-import Footer from '../../components/Footer/Footer';
+import Toolbar from '../Navigation/Toolbar/Toolbar';
+import TopDrawer from '../Navigation/SideDrawer/SideDrawer';
+import Footer from '../Footer/Footer';
 
 const Layout = props => {
 

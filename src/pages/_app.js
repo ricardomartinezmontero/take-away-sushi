@@ -6,7 +6,7 @@ import "../../styles/globals.css";
 
 import store from "../store";
 
-import Layout from "../hoc/Layout/Layout";
+import Layout from "../components/Layout/Layout";
 
 import '../UI/Icons';
 
