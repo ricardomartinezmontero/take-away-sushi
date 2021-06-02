@@ -3,7 +3,6 @@ import React from 'react';
 import classes from './ModalWindow.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import ItemSelector from '../ItemSelector';
 
@@ -14,7 +13,7 @@ const modalWindow = (props) => {
             <div className={classes.ModalContent}>
                 <div className={classes.Close}>
                     <FontAwesomeIcon 
-                        icon={faTimesCircle} 
+                        icon={['fa', 'times-circle']} 
                         onClick={props.closeClick} />
                 </div>
                 <ItemSelector 

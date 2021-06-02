@@ -3,7 +3,6 @@ import React from 'react';
 import classes from './OrderSummary.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 
 import Badge from '../../UI/Badge/Badge';
 
@@ -20,7 +19,7 @@ const orderSummary = (props) => {
                 </div>
                 <div className={classes.Price}>
                     <FontAwesomeIcon 
-                        icon={faMinusCircle} 
+                        icon={['fa','minus-circle']} 
                         onClick={() => props.removeItem(item.name, item.amount - 1)} />
                     <span>{(item.amount * item.price).toFixed(2)}€</span>
                 </div>

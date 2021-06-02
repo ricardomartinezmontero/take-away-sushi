@@ -1,0 +1,9 @@
+.LinkButton {
+    padding: 0 0 0 .5rem;
+    background-color: unset;
+    border: unset;
+    text-decoration: underline;
+    color: rgb(70, 70, 255);
+    font-weight: bold;
+    cursor: pointer;
+}

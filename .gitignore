@@ -26,4 +26,7 @@ yarn-error.log*
 .next
 env/
 
+dev.Dockerfile
+.github
+
 credentials
