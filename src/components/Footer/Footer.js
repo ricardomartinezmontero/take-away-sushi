@@ -8,12 +8,15 @@ import { countItemsInOrder } from '../../utils/shared';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Logo from '../Logo/Logo';
+import { useRouter } from 'next/router';
 
 const footer = (props) => {
 
     const order = useSelector(state => state.order.order);
 
-    const footerStyles = `${classes.Footer} ${countItemsInOrder(order) > 0 && classes.FooterBottomGap}`;
+    const router = useRouter();
+
+    const footerStyles = `${classes.Footer} ${countItemsInOrder(order) > 0 && router.pathname === '/menu'? classes.FooterBottomGap : ''}`;
 
     return (
         <footer className={footerStyles}>
