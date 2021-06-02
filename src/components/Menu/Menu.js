@@ -41,6 +41,9 @@ const Menu = (props) => {
 
     useEffect(() => {
         preventBodyScroll(showItemSelector || showOrderSummaryModal);
+        return () => {
+            preventBodyScroll(false);
+        };
     }, [showItemSelector, showOrderSummaryModal]);
 
     const findItemInMenu = (menu, itemName) =>
