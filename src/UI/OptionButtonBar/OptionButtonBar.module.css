@@ -1,0 +1,22 @@
+.OptionButtonBar {
+    align-self: center;
+    display: inline-block;
+    border-radius: 1.5rem;
+    background: #858585;
+    padding: .2rem;
+}
+
+.Option {
+    background: none;
+    border: none;
+    color: #ebebeb;
+    font-weight: bold;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.Selected {
+    border-radius: 1.5rem;
+    background: #ebebeb;
+    color: #858585;
+}

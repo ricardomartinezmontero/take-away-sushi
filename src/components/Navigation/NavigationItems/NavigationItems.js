@@ -13,7 +13,7 @@ const navigationItems = (props) => {
         <ul className={classes.NavigationItems}>
             <NavigationItem to="/menu">Menu</NavigationItem>
             {!isUserAuthenticated && <NavigationItem to="/login">Inicia Sesion</NavigationItem>}
-            {isUserAuthenticated && <NavigationItem to="/order">My Orders</NavigationItem>}
+            {isUserAuthenticated && <NavigationItem to="/my-orders">My Orders</NavigationItem>}
             {isUserAuthenticated && <LogoutButton onClick={props.onLogout}>Cerrar Sesion</LogoutButton>}
         </ul>
     );

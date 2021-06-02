@@ -20,7 +20,8 @@ const orderSummaryModal = (props) => {
             <OrderSummary 
                 className={classes.OrderSummaryContainer}
                 order={props.order} 
-                removeItem={props.removeItem} />
+                removeItem={props.removeItem} 
+                onProcessOrder={props.onProcessOrder}/>
         </div>
     );
 };

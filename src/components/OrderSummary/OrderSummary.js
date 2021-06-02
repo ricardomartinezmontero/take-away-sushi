@@ -46,7 +46,7 @@ const orderSummary = (props) => {
                 </div>
             </div>
             <div className={classes.PayContiner} >
-                <button className={classes.Pay} disabled={isEmptyOrder ? true : false}>
+                <button className={classes.Pay} disabled={isEmptyOrder ? true : false} onClick={props.onProcessOrder}>
                     <span>Realizar Pedido</span>
                 </button>
             </div>

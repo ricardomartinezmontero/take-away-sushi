@@ -15,6 +15,7 @@ import OrderSummaryModal from "../OrderSummary/OrderSummaryModal/OrderSummaryMod
 import OrderSummary from "../OrderSummary/OrderSummary";
 import OrderSummaryButton from "../OrderSummary/OrderSummaryButton/OrderSummaryButton";
 import Spinner from "../../UI/Spinner/Spinner";
+import { useRouter } from "next/router";
 
 const isExecutingInBrowser = typeof window !== "undefined";
 
@@ -22,6 +23,7 @@ const overlay = isExecutingInBrowser && document.getElementById("overlay");
 
 const Menu = (props) => {
     const dispatch = useDispatch();
+    const router = useRouter();
 
     const { menu: preloadedMenu } = props;
 
@@ -74,6 +76,10 @@ const Menu = (props) => {
         itemSelectorCloseHandler();
     };
 
+    const onProcessOrderHandler = () => {
+        router.push('order');
+    }
+
     const numberOfItemsOrdered = countItemsInOrder(order);
 
     const shoppingCartButtom =
@@ -104,14 +110,17 @@ const Menu = (props) => {
                 />
             </div>
             <div className={classes.OrderSummary}>
-                <OrderSummary order={order} removeItem={orderUpdateHandler} />
+                <OrderSummary 
+                    order={order} 
+                    removeItem={orderUpdateHandler} 
+                    onProcessOrder={onProcessOrderHandler} />
             </div>
             <OrderSummaryModal
                 toggleOrderSummary={toggleOrderSummaryHandler}
                 display={showOrderSummaryModal}
                 order={order}
                 removeItem={orderUpdateHandler}
-            />
+                onProcessOrder={onProcessOrderHandler} />
             {overlay && ReactDom.createPortal(modalItemSelector, overlay)}
             {shoppingCartButtom}
         </div>

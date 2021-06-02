@@ -28,8 +28,6 @@
 }
 
 .Main {
-    display: flex;
-    align-items: flex-start;
     padding: .5rem;
     min-height: calc(100vh - 322px - 40px - 171.2px);
 }

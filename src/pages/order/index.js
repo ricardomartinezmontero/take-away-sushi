@@ -1,15 +1,7 @@
-import { useSelector } from 'react-redux';
-// import OrderSummary from '../../components/OrderSummary/OrderSummary';
+import Order from '../../components/Order/Order';
 
-const Order = () => {
-
-    const order = useSelector(state => state.order.order);
-
-    return (
-        <div>
-            {/* <OrderSummary order={order} /> */}
-        </div>
-    );
+const OrderPage = () => {
+    return <Order />;
 };
 
-export default Order;
+export default OrderPage;

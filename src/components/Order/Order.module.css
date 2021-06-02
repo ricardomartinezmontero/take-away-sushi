@@ -1,0 +1,24 @@
+
+.Order {
+    display: flex;
+    flex-flow: column wrap;
+    row-gap: 1rem;
+}
+
+.OrderSection{
+    flex: 1;
+    display: flex;
+    width: 100%;
+    flex-flow: column wrap;
+    margin: 0 auto;
+    max-width: 40rem;
+    background: white;
+    padding: .5rem;
+    border-radius: .2rem;
+}
+.OrderSection header {
+    font-weight: bold;
+    font-size: 2rem;
+    color: #858585;
+    text-align: center;
+}

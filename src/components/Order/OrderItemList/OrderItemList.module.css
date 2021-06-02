@@ -1,0 +1,43 @@
+.OrderItemList {
+    display: flex;
+    flex-flow: column wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ListElement{
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 1rem;
+    color: #5c5c5c;
+}
+
+.ItemName {
+    flex: 1;
+}
+
+.ItemOrderTotal::after,
+.ItemOrderDetails::after {
+    content: '€'
+}
+
+.ItemOrderTotal {
+    font-weight: bold;
+}
+
+.OrderTotalPrice {
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 1rem;
+    font-weight: bold;
+}
+
+.OrderTotalPriceText {
+    margin-left: auto;
+}
+
+.OrderTotalPriceAmount::after {
+    content: '€'
+}
