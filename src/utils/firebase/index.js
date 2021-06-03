@@ -7,7 +7,6 @@ if (!firebase.apps.length) {
             authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
             projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
         };
-        console.log(firebaseConfig);
         firebase.initializeApp(firebaseConfig);
     } catch (error) {
         console.log("Firebase admin initialization error", error.stack);

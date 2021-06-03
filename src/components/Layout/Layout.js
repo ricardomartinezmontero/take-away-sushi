@@ -16,12 +16,18 @@ import { preventBodyScroll } from '../../utils/shared';
 import Toolbar from '../Navigation/Toolbar/Toolbar';
 import TopDrawer from '../Navigation/SideDrawer/SideDrawer';
 import Footer from '../Footer/Footer';
+import Spinner from '../../UI/Spinner/Spinner';
+import useRouteTransition from '../../utils/shared/useRouteTransition';
 
 const Layout = props => {
 
     const router = useRouter();
 
+    const { isRouteChangeStart } = useRouteTransition(router);
+
     const redirectPath = useSelector(state => state.auth.redirectPath);
+
+    const isLogging = useSelector(state => state.auth.isLogging);
 
     const [showSideDrawer, setShowSideDrawer] = useState(false);
 
@@ -38,6 +44,9 @@ const Layout = props => {
 
     useEffect(() => {
         preventBodyScroll(showSideDrawer);
+        return () => {
+            preventBodyScroll(false);
+        }
     }, [showSideDrawer]);
 
     const drawerClosedHandler = () => {
@@ -67,7 +76,7 @@ const Layout = props => {
                 <p>Take sushi away</p>
             </div>
             <main className={classes.Main}>
-                {props.children}
+                {isLogging || isRouteChangeStart ? <Spinner /> : props.children}
             </main>
             <Footer />
         </div>

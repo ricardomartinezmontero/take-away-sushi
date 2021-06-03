@@ -15,7 +15,6 @@ export const facebookLogin = () => {
             firebase.auth().useDeviceLanguage();
             await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
             const credentials = await firebase.auth().signInWithPopup(provider);
-            console.log(credentials.user.toJSON());
             dispatch(successLogin(credentials.user.toJSON()));
         } catch (error) {
             dispatch(errorLogin(error));
@@ -28,7 +27,6 @@ export const emailLogin = (email, password) => {
         dispatch(startLogin());
         try {
             const credentials = await firebase.auth().signInWithEmailAndPassword(email, password);
-            console.log(credentials.user.toJSON());
             dispatch(successLogin(credentials.user.toJSON()));
         } catch (error) {
             dispatch(errorLogin(error));
@@ -41,7 +39,6 @@ export const register = (email, password) => {
         dispatch(startLogin());
         try {
             const credentials = await firebase.auth().createUserWithEmailAndPassword(email, password);
-            console.log(credentials.user.toJSON());
             dispatch(successLogin(credentials.user.toJSON()));
         } catch (error) {
             dispatch(errorLogin(error));
