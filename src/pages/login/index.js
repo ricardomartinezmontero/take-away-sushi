@@ -4,16 +4,19 @@ import { useSelector } from "react-redux";
 import Login from "../../components/Login/Login";
 
 const LoginPage = () => {
+    
+    const isRenderedInClient = typeof window !== 'undefined';
 
-    const router = useRouter();
+    if (isRenderedInClient) {
+        const router = useRouter();
+        const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
-    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-
-    if (isLoggedIn){
-        router.back();
+        if (isLoggedIn){
+            router.back();
+        }
     }
 
-    return <Login />;
+    return isRenderedInClient ? <Login /> : null;
 };
 
 export default LoginPage;
