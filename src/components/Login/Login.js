@@ -8,18 +8,12 @@ import LoginForm from "../../components/Form/LoginForm/LoginForm";
 import RegisterForm from "../../components/Form/RegisterForm/RegisterForm";
 import FacebookLogin from "../../components/Form/FacebookButton/FacebookButton";
 import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/router";
 
 const Login = () => {
 
     const dispatch = useDispatch();
-    const router = useRouter();
 
     const [showLogin, setShowLogin] = useState(true);
-    
-    const isLogin = useSelector(state => state.auth.isLogin);
-    const user = useSelector(state => state.auth.user);
-    const redirectPath = useSelector(state => state.auth.redirectPath);
 
     const setToLogin = (event) => setShowLogin(true);
     const setToRegister = (event) => setShowLogin(false);
@@ -35,12 +29,6 @@ const Login = () => {
     const onEmailLogin = (email, password) => {
         dispatch(emailLogin(email, password));
     }
-
-    useEffect(() => {
-        if (!isLogin && user) {
-            router.replace(redirectPath);
-        }
-    }, [isLogin, user, redirectPath, router]);
 
     const form = showLogin ? (
         <section className={styles.LoginSection}>

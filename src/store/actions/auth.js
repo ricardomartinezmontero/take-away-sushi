@@ -3,7 +3,7 @@ import "firebase/auth";
 
 import { startLogin, successLogin, errorLogin, startLogout, successLogout, errorLogout } from '../auth';
 
-export const facebookLogin = () => {
+export const facebookLogin = (fromPath) => {
     return async dispatch => {
         dispatch(startLogin());
         try {
@@ -51,7 +51,7 @@ export const logout = () => {
         try{
             dispatch(startLogout());
             await firebase.auth().signOut();
-            dispatch(successLogout());
+            dispatch(successLogout({pathTo: '/'}));
         } catch (error) {
             dispatch(errorLogout());
         }

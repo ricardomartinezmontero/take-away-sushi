@@ -8,7 +8,8 @@ const useRouteTransition = (router) => {
         setIsRouteChangeStart(true);
     };
 
-    const onRouteChangeEndHandler = () => {
+    const onRouteChangeEndHandler = (url) => {
+        console.log(url);
         setIsRouteChangeStart(false);
     };
 
@@ -17,9 +18,10 @@ const useRouteTransition = (router) => {
         router.events.on('routeChangeComplete', onRouteChangeEndHandler);
         router.events.on('routeChangeError', onRouteChangeEndHandler);
         return () => {
+            console.log("clean all.")
             router.events.off('routeChangeStart', onRouteChangeStartHandler);
             router.events.off('routeChangeComplete', onRouteChangeEndHandler);
-            router.events.off('routeChangeError', onRouteChangeEndHandler);
+            router.events.on('routeChangeError', onRouteChangeEndHandler);
         }
     }, []);
 

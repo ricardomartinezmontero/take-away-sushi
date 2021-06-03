@@ -25,8 +25,6 @@ const Layout = props => {
 
     const { isRouteChangeStart } = useRouteTransition(router);
 
-    const redirectPath = useSelector(state => state.auth.redirectPath);
-
     const isLogging = useSelector(state => state.auth.isLogging);
 
     const [showSideDrawer, setShowSideDrawer] = useState(false);
@@ -59,7 +57,6 @@ const Layout = props => {
 
     const onLogoutHandler = (event) => {
         dispatch(logout());
-        router.replace(redirectPath);
     }
 
     return (

@@ -3,7 +3,7 @@ import React from 'react';
 import classes from './NavigationItems.module.css'
 import NavigationItem from './NavigationItem/NavigationItem';
 import LogoutButton from './LogoutButton/LogoutButton';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const navigationItems = (props) => {
 
@@ -13,7 +13,7 @@ const navigationItems = (props) => {
         <ul className={classes.NavigationItems}>
             <NavigationItem to="/menu">Menu</NavigationItem>
             {!isUserAuthenticated && <NavigationItem to="/login">Inicia Sesion</NavigationItem>}
-            {isUserAuthenticated && <NavigationItem to="/my-orders">My Orders</NavigationItem>}
+            {isUserAuthenticated && <NavigationItem to="/my-orders">Mis Pedidos</NavigationItem>}
             {isUserAuthenticated && <LogoutButton onClick={props.onLogout}>Cerrar Sesion</LogoutButton>}
         </ul>
     );

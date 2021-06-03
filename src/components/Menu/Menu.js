@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ReactDom from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 import classes from "./Menu.module.css";
 
@@ -15,7 +16,6 @@ import OrderSummaryModal from "../OrderSummary/OrderSummaryModal/OrderSummaryMod
 import OrderSummary from "../OrderSummary/OrderSummary";
 import OrderSummaryButton from "../OrderSummary/OrderSummaryButton/OrderSummaryButton";
 import Spinner from "../../UI/Spinner/Spinner";
-import { useRouter } from "next/router";
 
 const isExecutingInBrowser = typeof window !== "undefined";
 
@@ -80,7 +80,7 @@ const Menu = (props) => {
     };
 
     const onProcessOrderHandler = () => {
-        router.push('order');
+        router.push('/order');
     }
 
     const numberOfItemsOrdered = countItemsInOrder(order);

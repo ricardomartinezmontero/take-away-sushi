@@ -4,8 +4,7 @@ const initialState = {
     user: null,
     isLogging: false,
     error: null,
-    isLoggedIn: false,
-    redirectPath: '/'
+    isLoggedIn: false
 }
 
 const authSlice = createSlice({
@@ -31,7 +30,6 @@ const authSlice = createSlice({
         },
         successLogout: (state, action) => {
             state.user = null;
-            state.redirectPath = '/';
             state.isLogging = false;
             state.isLoggedIn = false;
         },
