@@ -7,7 +7,7 @@ import { facebookLogin, emailLogin, register } from '../../store/actions/auth';
 import LoginForm from "../../components/Form/LoginForm/LoginForm";
 import RegisterForm from "../../components/Form/RegisterForm/RegisterForm";
 import FacebookLogin from "../../components/Form/FacebookButton/FacebookButton";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
 

@@ -5,7 +5,7 @@
     row-gap: 1rem;
 }
 
-.OrderSection{
+.OrderSection {
     flex: 1;
     display: flex;
     width: 100%;
@@ -15,10 +15,27 @@
     background: white;
     padding: .5rem;
     border-radius: .2rem;
+    border: none;
 }
+
 .OrderSection header {
     font-weight: bold;
     font-size: 2rem;
     color: #4d4d4d;
     text-align: center;
+}
+
+.Actions {
+    flex: 1;
+    display: flex;
+    width: 100%;
+    flex-flow: column wrap;
+    margin: 0 auto;
+    max-width: 40rem;
+}
+
+.CardElement {
+    padding: .8rem;
+    border: 1px solid #4d4d4d;
+    border-radius: 5px;
 }

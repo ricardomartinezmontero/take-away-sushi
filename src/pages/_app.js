@@ -1,14 +1,18 @@
 import Head from 'next/head';
-
 import { Provider } from "react-redux";
 
 import "../../styles/globals.css";
+
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
 
 import store from "../store";
 
 import Layout from "../components/Layout/Layout";
 
 import '../UI/Icons';
+
+const stripePromise = loadStripe('pk_test_51Iyi2SHrq82N5ZjtrN7HrsebBPWnpka4tFNfd1BCy13W3MAN9oaae2xCyDFbcRGd6zxwfrt3aManIDLIpZeTI9mA000SqTtXxg');
 
 const MyApp = ({ Component, pageProps }) => {
     const tittle = "Take Sushi Away";
@@ -40,7 +44,9 @@ const MyApp = ({ Component, pageProps }) => {
                 <meta name="twitter:image" content={imagePath} />
             </Head>
             <Layout>
-                <Component {...pageProps} />
+                <Elements stripe={stripePromise}>
+                    <Component {...pageProps} />
+                </Elements>
             </Layout>
         </Provider>
     );

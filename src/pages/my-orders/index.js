@@ -15,7 +15,7 @@ const MyOrderListPage = () => {
         }
     }
 
-    return isRenderedInClient ? <OrderList /> : null;
+    return <OrderList />;
 };
 
 export default MyOrderListPage;

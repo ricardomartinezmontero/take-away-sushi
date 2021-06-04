@@ -17,7 +17,7 @@ const OrderPage = () => {
         }
     }
 
-    return isRenderedInClient ? <Order /> : null;
+    return <Order />;
 };
 
 export default OrderPage;
