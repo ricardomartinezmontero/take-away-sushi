@@ -5,6 +5,7 @@ import classes from './Order.module.css';
 
 import OptionButtonBar from "../../UI/OptionButtonBar/OptionButtonBar";
 import OrderItemList from "./OrderItemList/OrderItemList";
+import OrderDetailForm from "../Form/OrderDetailForm/OrderDetailForm";
 
 const Order = () => {
 
@@ -38,8 +39,12 @@ const Order = () => {
                     onOptionSelected={onOptionSelectedHandler} />
             </section>
             <section className={classes.OrderSection}>
-                <header>Tu lista del pedido</header>
+                <header>Mi Pedido</header>
                 <OrderItemList order={order} />
+            </section>
+            <section className={classes.OrderSection}>
+                <header>Mis Detalles</header>
+                <OrderDetailForm />
             </section>
         </div>
     );

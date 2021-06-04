@@ -22,3 +22,18 @@ export const passwordValidation = (password) => {
   const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
   return passwordRegex.test(password);
 }
+
+export const telephoneNumberValidator = (telephone) => {
+  const telephoneNumberRegex = /^[0-9]{2,3}-? ?[0-9]{6,7}$/;
+  return telephoneNumberRegex.test(telephone);
+}
+
+export const addressValidator = (address) => {
+  const addressRegex = /\w+,\s*\d{1,}/;
+  return addressRegex.test(address);
+}
+
+export const postcodeValidator = (postcode) => {
+  const postcodeRegex = /0[1-9][0-9]{3}|[1-4][0-9]{4}|5[0-2][0-9]{3}/;
+  return postcodeRegex.test(postcode);
+}

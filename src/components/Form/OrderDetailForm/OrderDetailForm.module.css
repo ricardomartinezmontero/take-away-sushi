@@ -1,15 +1,11 @@
-.LoginForm {
+.OrderDetailForm {
     display: flex;
     flex-direction: column;
     row-gap: .5rem;
 }
 
-.Register {
-    display: flex;
-}
-
 @media(min-width: 600px){
-    .LoginForm {
+    .OrderDetailForm {
         justify-content: center;
         align-content: center;
     }
